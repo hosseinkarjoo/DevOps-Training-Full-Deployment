@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+        dockerhubReg = hosseinkarjoo/devops-training-app
+    {
     agent {
         node {
             label 'prod-stage'
@@ -10,5 +13,12 @@ pipeline {
                 git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'Front-Stage', credentialsId: 'github_creds'
                 }
             }
-        } 
+        stage (Secounf - Build Docker Image) {
+            steps {
+                script {
+                    image = docker.build dockerhubReg + "$BUID_NUMBER"
+                }
+            }
+        }
+    } 
 }
