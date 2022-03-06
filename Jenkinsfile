@@ -1,6 +1,7 @@
 pipeline {
     environment {
         dockerhubReg = "hosseinkarjoo/devops-training-app"
+        dockercontainername = "devops-training-app"
     }
     agent {
         node {
@@ -32,9 +33,17 @@ pipeline {
         }
         stage ("Forth - Deploy to Stage") {
             steps {
-                sh 'docker container stop ${dockerhubReg}'
-                sh 'docker image rm ${dockerhubReg}'
-                sh 'docker run -d --name testweb -p 80:8080 ${dockerhubReg}'
+                script {
+                    try {
+                        sh 'docker container stop ${dockercontainername}'
+                        sh 'docker container rm ${dockercontainername}'
+                        sh 'docker image rm ${dockerhubReg}'
+                    } 
+                    catch (err) {
+                        echo: 'ERROORR'
+                    }
+                    sh 'docker run -d --name ${dockercontainername} -p 8080:80 ${dockerhubReg}'
+                }    
             }
         }
     }
