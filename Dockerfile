@@ -1,5 +1,5 @@
 FROM alpine as BASE
-RUN apk update && apk upgrade && apk add httpd
+RUN apk update && apk upgrade && apk add apache2
 
 FROM BASE
 WORKDIR /var/www/
