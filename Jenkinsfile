@@ -1,4 +1,4 @@
-Pipeline {
+pipeline {
     agent any
     stages {
         stage('First - Clone Git Project') {
