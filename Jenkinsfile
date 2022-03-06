@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        dockerhubReg = hosseinkarjoo/devops-training-app
+        dockerhubReg = "hosseinkarjoo/devops-training-app"
     }
     agent {
         node {
@@ -16,17 +16,19 @@ pipeline {
         stage ('Secound - Build Docker Image') {
             steps {
                 script {
-                    image = docker.build dockerhubReg:"$BUID_NUMBER"
+                    image = docker.build dockerhubReg
                 }
             }
         }
-        Stage ('Third - Push Image to DockerHub') {
+        stage ('Third - Push Image to DockerHub') {
             steps {
-                docker.withRegistry('https://hub.docker.com', 'hub_credentialsId'){
-                    image.push()  
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'hub_credentialsId'){
+                        app.push("${BUILD_NUMBER}")
+                        app.push(latest)
+                    }
                 }
             }
         }
-
-    } 
+    }
 }
