@@ -32,11 +32,9 @@ pipeline {
         }
         stage ("Forth - Deploy to Stage") {
             steps {
-                agent { 
-                    docker {
-                        image dockerhubReg
-                    }
-                }
+                sh 'docker container stop ${dockerhubReg}'
+                sh 'docker image rm ${dockerhubReg}'
+                sh 'docker run -d --name testweb -p 80:8080 ${dockerhubReg}'
             }
         }
     }
