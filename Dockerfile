@@ -1,8 +1,5 @@
-FROM alpine as BASE
-RUN apk update && apk upgrade && apk add apache2-ssl
-
-FROM BASE
-WORKDIR /var/www/
+FROM httpd
+WORKDIR /var/www/html/
 RUN echo "salam" > index.html
-CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
+CMD ["/usr/sbin/httpd", "FOREGROUND"]
 EXPOSE 80
