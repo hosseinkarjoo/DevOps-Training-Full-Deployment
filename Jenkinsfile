@@ -16,9 +16,17 @@ pipeline {
         stage ('Secound - Build Docker Image') {
             steps {
                 script {
-                    image = docker.build dockerhubReg + "$BUID_NUMBER"
+                    image = docker.build dockerhubReg:"$BUID_NUMBER"
                 }
             }
         }
+        Stage ('Third - Push Image to DockerHub') {
+            steps {
+                docker.withRegistry('https://hub.docker.com', 'hub_credentialsId'){
+                    image.push()  
+                }
+            }
+        }
+
     } 
 }
