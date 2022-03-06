@@ -30,5 +30,14 @@ pipeline {
                 }
             }
         }
+        stage ("Forth - Deploy to Stage") {
+            steps {
+                agent { 
+                    docker {
+                        image dockerhubReg
+                    }
+                }
+            }
+        }
     }
 }
