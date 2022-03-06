@@ -1,5 +1,5 @@
 FROM alpine as BASE
-RUN apt update -y && apt upgrade -y && apt install httpd && systemctl strat httpd && systemctl enable httpd
+RUN apt-get -y update && apt-get -y upgrade && apt-get -y install && systemctl strat httpd && systemctl enable httpd
 
 FROM BASE
 WORKDIR /var/www/
