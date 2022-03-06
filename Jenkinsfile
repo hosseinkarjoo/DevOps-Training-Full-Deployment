@@ -1,7 +1,7 @@
 pipeline {
     environment {
         dockerhubReg = hosseinkarjoo/devops-training-app
-    {
+    }
     agent {
         node {
             label 'prod-stage'
