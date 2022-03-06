@@ -1,5 +1,5 @@
 FROM alpine as BASE
-RUN apk -y update && apk -y upgrade && apk -y install && systemctl strat httpd && systemctl enable httpd
+RUN apk update && apk upgrade && apk add httpd
 
 FROM BASE
 WORKDIR /var/www/
