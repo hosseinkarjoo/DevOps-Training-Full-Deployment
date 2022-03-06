@@ -23,9 +23,9 @@ pipeline {
         stage ('Third - Push Image to DockerHub') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'hub_credentialsId'){
-                        app.push("${BUILD_NUMBER}")
-                        app.push(latest)
+                    docker.withRegistry('https://registry.hub.docker.com', 'hub_credentialsId') {
+                        image.push("${BUILD_NUMBER}")
+                        image.push("latest")
                     }
                 }
             }
