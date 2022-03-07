@@ -1,5 +1,5 @@
 FROM ubuntu as BASE
-RUN apt update -y && apt install -y python-pip python-dev
+RUN apt-get update -y && apt-get install -y python-pip python-dev
 COPY ./requierments.txt /app/requierments.txt
 
 
