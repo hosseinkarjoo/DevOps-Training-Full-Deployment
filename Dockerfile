@@ -7,5 +7,5 @@ FROM BASE
 WORKDIR /app
 RUN pip install -r requierments.txt
 COPY . /app
-ENTRYPOINT ['python3.6']
-CMD ['main.py']
+ENTRYPOINT ['python3']
+CMD ['python3', 'main.py']
