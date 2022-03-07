@@ -7,5 +7,4 @@ FROM BASE
 WORKDIR /app
 RUN pip install -r requierments.txt
 COPY . /app
-ENTRYPOINT ['python3']
-CMD ['python3', 'main.py']
+ENTRYPOINT ["python", "-m", "flask", "run", "--host=0.0.0.0"]
