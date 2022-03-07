@@ -1,5 +1,11 @@
-FROM httpd
-WORKDIR /var/www/html/
-RUN rm -rf ./index.html
-RUN echo "salam" > ./index.html
-EXPOSE 80
+FROM ubuntu as BASE
+RUN apt update -y && apt install -y python-pip python-dev
+COPY ./requierments.txt /app/requierments.txt
+
+
+FROM BASE
+WORKDIR /app
+RUN pip install -r requierments.txt
+COPY . /app
+ENTRYPOINT ['python']
+CMD ['main.py']
