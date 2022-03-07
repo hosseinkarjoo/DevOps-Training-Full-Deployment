@@ -1,7 +1,7 @@
 pipeline {
     environment {
         dockerhubReg = "hosseinkarjoo/devops-training-app"
-        dockercontainername = "devops-training-app"
+        dockercontainername = "devops-training-app-Flask"
     }
     agent {
         node {
@@ -42,7 +42,7 @@ pipeline {
                     catch (err) {
                         echo: 'ERROORR'
                     }
-                    sh 'docker run -d --name ${dockercontainername} -p 8080:80 ${dockerhubReg}'
+                    sh 'docker run -d --name ${dockercontainername} -p 5000:5000 ${dockerhubReg}'
                 }    
             }
         }
