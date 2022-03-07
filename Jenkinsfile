@@ -1,7 +1,7 @@
 pipeline {
     environment {
-        dockerhubReg = "hosseinkarjoo/devops-training-app"
-        dockercontainername = "devops-training-app-Flask"
+        dockerhubReg = "hosseinkarjoo/devops-training-database"
+        dockercontainername = "devops-training-database"
     }
     agent {
         node {
@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('First - Clone Git Project') {
             steps {
-                git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'Front-Prod', credentialsId: 'github_creds'
+                git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'Backend-Stage', credentialsId: 'github_creds'
                 }
             }
         stage ('Secound - Build Docker Image') {
@@ -38,11 +38,12 @@ pipeline {
                         sh 'docker container stop ${dockercontainername}'
                         sh 'docker container rm ${dockercontainername}'
                         sh 'docker image rm ${dockerhubReg}'
+                        sh 'docker volume create mysql-db'
                     } 
                     catch (err) {
                         echo: 'ERROORR'
                     }
-                    sh 'docker run -d --name ${dockercontainername} -p 80:5000 ${dockerhubReg}'
+                    sh 'docker run -d --name ${dockercontainername} --mount source=mysql-db,target=/var/lib/mysql -p 3306:3306 ${dockerhubReg}'
                 }    
             }
         }
