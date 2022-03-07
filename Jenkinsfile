@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('First - Clone Git Project') {
             steps {
-                git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'Front-Stage', credentialsId: 'github_creds'
+                git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'Front-Prod', credentialsId: 'github_creds'
                 }
             }
         stage ('Secound - Build Docker Image') {
