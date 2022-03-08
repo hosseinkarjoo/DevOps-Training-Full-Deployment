@@ -1,8 +1,8 @@
 DROP DATABASE IF EXISTS local_db;
 
-CREATE DATABASE local_db;
+CREATE DATABASE database;
 
-USE local_db;
+USE database;
 
 DROP TABLE IF EXISTS books;
 
