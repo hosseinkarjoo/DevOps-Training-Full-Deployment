@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS local_db;
 
 CREATE DATABASE database;
-
+GRANT usage on *.* to root@devops-training-ap-Flask identified by '123@qwerR'
 USE database;
 
 DROP TABLE IF EXISTS books;
