@@ -1,11 +1,10 @@
-FROM ubuntu as BASE
-RUN apt-get update -y && apt-get install -y python3-pip python3.7.2
-COPY ./requierments.txt /app/requierments.txt
+FROM python:3.8-alpine
+COPY ./requirements.txt /app/requirements.txt
 
 #ENV FLASK_ENV=development
 ENV FLASK_APP=main.py
 ENV FLASK_DEBUG=1
-FROM BASE
+
 WORKDIR /app
 RUN pip install -r requierments.txt
 COPY . /app
