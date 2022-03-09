@@ -2,8 +2,8 @@ FROM python:3.8-alpine
 #COPY ./requirements.txt /app/requirements.txt
 
 #ENV FLASK_ENV=development
-#ENV FLASK_APP=main.py
-#ENV FLASK_DEBUG=1
+ENV FLASK_APP=main.py
+ENV FLASK_DEBUG=1
 RUN pip install Flask
 #WORKDIR /app
 #RUN apt-get install default-libmysqlclient-dev
