@@ -43,7 +43,7 @@ pipeline {
                     catch (err) {
                         echo: 'ERROORR'
                     }
-                    sh 'docker run -d --name ${dockercontainername} --mount source=mysql-db,target=/var/lib/mysql --network=main-net ${dockerhubReg}'
+                    sh 'docker run -d --name ${dockercontainername} --mount source=mysqldb,target=/var/lib/mysql --network=main-net ${dockerhubReg}'
                 }    
             }
         }
