@@ -6,7 +6,7 @@ ENV FLASK_ENV=development
 ENV FLASK_APP=main.py
 FROM BASE
 WORKDIR /app
-RUN pip install -r requierments.txt
+RUN pip3 install -r requierments.txt
 COPY . /app
 EXPOSE  5000
 ENTRYPOINT ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
