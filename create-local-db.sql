@@ -1,16 +1,12 @@
-DROP DATABASE IF EXISTS local_db;
+CREATE DATABASE IF NOT EXISTS `pythonlogin` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `pythonlogin`;
 
-CREATE DATABASE local_db;
+CREATE TABLE IF NOT EXISTS `accounts` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+  	`username` varchar(50) NOT NULL,
+  	`password` varchar(255) NOT NULL,
+  	`email` varchar(100) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-USE local_db;
-
-DROP TABLE IF EXISTS books;
-
-CREATE TABLE books (
-  id int(10) NOT NULL,
-  title varchar(30) NOT NULL DEFAULT '',
-  PRIMARY KEY (id)
-);
-
-INSERT INTO books VALUES(1, 'Book 1');
-INSERT INTO books VALUES(2, 'Book 2');
+INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', 'test', 'test@test.com');
