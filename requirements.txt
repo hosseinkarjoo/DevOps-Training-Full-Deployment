@@ -1,4 +1,4 @@
-Flask=2.0.2
+Flask
 Flask-mysqldb
-mock=4.0.3
-mysqlclient=1.4.3
+mock
+mysqlclient
