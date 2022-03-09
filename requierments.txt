@@ -1,6 +1,2 @@
 flask
-Flask-SQLAlchemy
-flask-login
-pymysql
-cryptography
 flask-mysqldb
