@@ -1,5 +1,5 @@
 FROM ubuntu as BASE
-RUN apt-get update -y && apt-get install -y python3-pip python3-dev python3.7.2 python-pip
+RUN apt-get update -y && apt-get install -y python3-pip python3.7.2
 COPY ./requierments.txt /app/requierments.txt
 
 #ENV FLASK_ENV=development
