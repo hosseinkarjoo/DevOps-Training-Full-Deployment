@@ -4,6 +4,7 @@ FROM python:3.8-alpine
 #ENV FLASK_ENV=development
 ENV FLASK_APP=main.py
 ENV FLASK_DEBUG=1
+RUN pip install --upgrade pip
 RUN pip install Flask
 RUN pip install mysqlclient
 RUN pip install flask-mysqldb
