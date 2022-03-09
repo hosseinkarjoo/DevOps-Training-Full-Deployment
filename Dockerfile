@@ -6,7 +6,7 @@ ENV FLASK_APP=main.py
 ENV FLASK_DEBUG=1
 
 WORKDIR /app
-RUN apt install default-libmysqlclient-dev
+RUN apt-get install default-libmysqlclient-dev
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 COPY . /app
