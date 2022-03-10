@@ -1,4 +1,8 @@
 FROM python:3
+
+ENV FLASK_APP=main.py
+ENV FLASK_DEBUG=1
+
 RUN mkdir /app     
 WORKDIR /app
 COPY requirements.txt /app/   
