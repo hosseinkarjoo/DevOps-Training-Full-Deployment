@@ -5,7 +5,7 @@ COPY ./requirements.txt /app/requirements.txt
 ENV FLASK_APP=main.py
 ENV FLASK_DEBUG=1
 RUN pip install --upgrade pip
-RUN apt-get install mysql-server -y
+RUN yum install mysql-server -y
 #RUN pip install Flask
 #RUN pip install mysqlclient
 #RUN pip install flask-mysqldb
