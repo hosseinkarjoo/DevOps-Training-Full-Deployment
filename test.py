@@ -1,3 +1,4 @@
+#! /usr/bin/env python 3.6
 import unittest
 import main
 class TestHello(unittest.TestCase):
