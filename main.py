@@ -139,5 +139,5 @@ def profile():
 def register():
     # Output message if something goes wrong...
     msg = 'Website is OK'
-
+    return render_template('test.html', msg='')
 
