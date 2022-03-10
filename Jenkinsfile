@@ -2,6 +2,7 @@ pipeline {
     environment {
         dockerhubReg = "hosseinkarjoo/devops-training-app"
         dockercontainername = "devops-training-app-Flask"
+        dockercontainertest = "devops-training-app-test"
     }
     agent {
         node {
@@ -48,7 +49,7 @@ pipeline {
         }
         stage ("Fifth - HealthCheck") {
             steps {
-                sh 'python3.6 test.py'
+                sh 'docker container run -it --name ${dockercontainertest} python  "python3.6 test.py"'
             }
         }
 
