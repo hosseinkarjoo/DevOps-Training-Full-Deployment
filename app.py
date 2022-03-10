@@ -20,5 +20,5 @@ def get():
                 for i, value in enumerate(row)) for row in cur.fetchall()]
     return jsonify({'myCollection' : r})
 
-if __name__ == '__main__':
+if __name__ == '__app__':
     app.run(host='0.0.0.0', port=5001)
