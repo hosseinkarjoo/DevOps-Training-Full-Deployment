@@ -46,5 +46,11 @@ pipeline {
                 }    
             }
         }
+        stage ("Fifth - HealthCheck") {
+            steps {
+                sh 'python3.6 test.py'
+            }
+        }
+
     }
 }
