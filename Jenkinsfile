@@ -42,7 +42,7 @@ pipeline {
                     catch (err) {
                         echo: 'ERROORR'
                     }
-                    sh 'docker run -d --name ${dockercontainername} -p 5001:5001 --network=main-net ${dockerhubReg}'
+                    sh 'docker run -d --name ${dockercontainername} -p 8080:5001 --network=main-net ${dockerhubReg}'
                 }    
             }
         }
