@@ -46,5 +46,18 @@ pipeline {
                 }    
             }
         }
+        stage ("Fifth - test app") {
+            steps {
+                script {
+                    try {
+                        sh 'python3.6 ./test.py'
+                    }
+                    catch (err) {
+                        echo: 'ERROORR'
+                    }
+                }
+            }
+        }
+
     }
 }
