@@ -132,4 +132,12 @@ def profile():
         return render_template('profile.html', account=account)
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
-        
+       
+
+
+@app.route('/test', methods=['GET', 'POST'])
+def register():
+    # Output message if something goes wrong...
+    msg = 'Website is OK'
+
+
