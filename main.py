@@ -135,8 +135,8 @@ def profile():
        
 
 
-@app.route('/test', methods=['GET', 'POST'])
-def register():
+@app.route('/test')
+def test():
     # Output message if something goes wrong...
     msg = 'Website is OK'
     return render_template('test.html', msg='')
