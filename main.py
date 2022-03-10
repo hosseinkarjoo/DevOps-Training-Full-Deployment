@@ -53,7 +53,7 @@ def login():
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
             
-    return render_template('index.html', msg='msg')
+    return render_template('index.html', msg='')
             
 # http://localhost:5000/python/logout - this will be the logout page
 @app.route('/pythonlogin/logout')
