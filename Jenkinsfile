@@ -49,7 +49,7 @@ pipeline {
         }
         stage ("Fifth - HealthCheck") {
             steps {
-                sh 'docker container exec -it ${dockercontainername}  python test.py'
+                sh 'docker container exec -i ${dockercontainername}  python test.py'
             }
         }
 
