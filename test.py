@@ -1,9 +1,6 @@
-#! /usr/bin/env python 3.6
-from flask import Flask, render_template, request, redirect, url_for, session
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
-import re
-
+#! /usr/bin/env python
+import unittest
+import main
 class TestHello(unittest.TestCase):
     def setUp(self):
         app.testing = True

@@ -49,7 +49,7 @@ pipeline {
         }
         stage ("Fifth - HealthCheck") {
             steps {
-                sh 'docker container run --rm -i --name ${dockercontainertest} ${dockerhubReg}  python3.6 test.py'
+                sh 'docker container run --rm -i --name ${dockercontainertest} ${dockerhubReg}  python test.py'
             }
         }
 
