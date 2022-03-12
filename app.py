@@ -13,7 +13,7 @@ app.config['MYSQL_DATABASE_HOST'] = 'devops-training-database'
 mysql.init_app(app)
 
 # Redis Cache Config
-cache = Cache()
+#cache = Cache(app)
 
 config = {
   'CACHE_TYPE': 'redis',
@@ -22,10 +22,10 @@ config = {
   'CACHE_REDIS_DB': '',
   'CACHE_REDIS_PASSWORD': ''
 }
-app.config["CACHE_TYPE"] = "null"
+#app.config["CACHE_TYPE"] = "null"
 app.config.from_object(config)
-cache.init_app(app)
-
+#cache.init_app(app)
+cache = Cache(app)
 @app.route('/')
 @cache.cached(timeout=60)
 def get():
