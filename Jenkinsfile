@@ -16,7 +16,7 @@ pipeline {
                 }
             }
         stage ('Build Docker Image and Push to dockerHub') {
-            dir(./app){
+            dir(/app){
                 steps {
                     script {
                         image-app = docker.build dockerhubapp
