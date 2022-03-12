@@ -15,7 +15,7 @@ mysql.init_app(app)
 # Redis Cache Config
 cache = Cache()
 
-config = {
+app.config = {
   'CACHE_TYPE': 'redis',
   'CACHE_REDIS_HOST': 'devops-training-Redis',
   'CACHE_REDIS_PORT': 6379,
