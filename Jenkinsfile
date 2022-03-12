@@ -8,7 +8,7 @@ pipeline {
         node {
             label 'prod-stage'
        }
-   }
+    }
     stages {
         stage('First - Clone Git Project') {
             steps {
@@ -69,10 +69,9 @@ pipeline {
                     catch (err) {
                         echo: 'ERROORR'
                     }
-                    sh 'docker run -d --name ${dockercontainerRedis} --network=main-net redis
+                    sh 'docker run -d --name ${dockercontainerRedis} --network=main-net redis'
                 }
             }
 	}
-
     }
 }
