@@ -28,7 +28,7 @@ services:
 
     db:
         container_name: devops-training-db
-        biuld: ./db/
+        build: ./db/
         networks:
             - main-net
         volumes:
