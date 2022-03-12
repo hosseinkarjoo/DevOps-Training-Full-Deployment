@@ -37,8 +37,8 @@ services:
 
 
 networks:
-    - main-net:
-        bridge
+    main-net:
+        driver: bridge
 
 volumes:
-    - mysqldb
+    mysqldb
