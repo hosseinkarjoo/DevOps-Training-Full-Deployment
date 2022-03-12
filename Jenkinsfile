@@ -7,15 +7,17 @@ pipeline {
     agent {
         node {
             label 'prod-stage'
-        }
-    }
+       }
+   }
     stages {
         stage('First - Clone Git Project') {
+#            agent { label 'prod-stage' }
             steps {
                 git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'Back-API', credentialsId: 'github_creds'
                 }
             }
         stage ('Secound - Build Docker Image') {
+#            agent { label 'prod-stage' }
             steps {
                 script {
                     image = docker.build dockerhubReg
@@ -23,6 +25,7 @@ pipeline {
             }
         }
         stage ('Third - Push Image to DockerHub') {
+#            agent { label 'prod-stage' }
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'hub_credentialsId') {
@@ -33,6 +36,7 @@ pipeline {
             }
         }
         stage ("Forth - Deploy to Stage") {
+#            agent { label 'prod-stage' }
             steps {
                 script {
                     try {
