@@ -3,7 +3,7 @@ import unittest
 import main
 class TestHello(unittest.TestCase):
     def setUp(self):
-        app.testing = True
+        main.testing = True
         self.app = app.test_client()
     def test_hello(self):
         rv = self.app.get('/test')
