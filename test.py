@@ -8,7 +8,8 @@ pubip = requests.get(icanhazip).text
 
 pub = pubip[:-1]
 
-myip = f"http://{pub}/pythonlogin"
+
+myip = f"http://{pub}:8080"
 statuscode = requests.get(myip)
 
 if statuscode.status_code == 200:
