@@ -37,8 +37,8 @@ services:
 
 
 networks:
-    main-net:
+    - main-net:
         bridge
 
 volumes:
-    mysqldb
+    - mysqldb
