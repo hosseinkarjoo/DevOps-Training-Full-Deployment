@@ -72,7 +72,7 @@ pipeline {
                     sh 'docker run -d --name ${dockercontainerRedis} --network=main-net redis
                 }
             }
-
+	}
 
     }
 }
