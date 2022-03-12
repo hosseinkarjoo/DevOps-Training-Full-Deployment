@@ -2,4 +2,4 @@ flask
 flask-mysql
 requests
 cryptography
-
+flask_cache

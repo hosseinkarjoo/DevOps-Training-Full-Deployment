@@ -2,6 +2,7 @@ pipeline {
     environment {
         dockerhubReg = "hosseinkarjoo/devops-training-app"
         dockercontainername = "devops-training-API"
+        dockercontainerRedis = "devops-training-Redis"
     }
     agent {
         node {
@@ -58,6 +59,20 @@ pipeline {
                 }
             }
         }
+        stage ("Sixth - Deploy Redis-Cache") {
+            steps {
+                script {
+                    try {
+                        sh 'docker container stop ${dockercontainerRedis}'
+                        sh 'docker container rm ${dockercontainerRedis}'
+                    }
+                    catch (err) {
+                        echo: 'ERROORR'
+                    }
+                    sh 'docker run -d --name ${dockercontainerRedis} --network=main-net redis
+                }
+            }
+
 
     }
 }
