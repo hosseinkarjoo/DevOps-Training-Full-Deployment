@@ -21,28 +21,31 @@ pipeline {
                     script {
                         image-app = docker.build dockerhubapp
                         docker.withRegistry('https://registry.hub.docker.com', 'hub_credentialsId') {
-                        image-app.push("${BUILD_NUMBER}")
-                        image-app.push("latest")
+                            image-app.push("${BUILD_NUMBER}")
+                            image-app.push("latest")
+                        }
                     }
                 }
             }
-            dir(./api){
+            dir(/api){
                 steps {
                     script {
                         image-api = docker.build dockerhubapi
                         docker.withRegistry('https://registry.hub.docker.com', 'hub_credentialsId') {
-                        image-api.push("${BUILD_NUMBER}")
-                        image-api.push("latest")
+                            image-api.push("${BUILD_NUMBER}")
+                            image-api.push("latest")
+                        }
                     }
                 }
             }
-            dir(./db){
+            dir(/db){
                 steps {
                     script {
                         image-db = docker.build dockerhubdb
                         docker.withRegistry('https://registry.hub.docker.com', 'hub_credentialsId') {
-                        image-db.push("${BUILD_NUMBER}")
-                        image-db.push("latest")
+                            image-db.push("${BUILD_NUMBER}")
+                            image-db.push("latest")
+                        }
                     }
                 }
             }
