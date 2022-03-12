@@ -1,7 +1,11 @@
 from flask import Flask, jsonify
 from flaskext.mysql import MySQL
 from flask_caching import Cache
+from config import BaseConfig
 app = Flask(__name__)
+app.config.from_object(BaseConfig)
+cache = Cache(app)
+
 mysql = MySQL()
 
 # MySQL configurations
@@ -13,14 +17,8 @@ app.config['MYSQL_DATABASE_HOST'] = 'devops-training-database'
 mysql.init_app(app)
 
 # Redis Cache Config
+#app.config.from_object(BaseConfig)
 
-cache = Cache(app, config = {
-  'CACHE_TYPE': 'redis',
-  'CACHE_REDIS_HOST': 'devops-training-Redis',
-  'CACHE_REDIS_PORT': 6379,
-  'CACHE_REDIS_DB': '',
-  'CACHE_REDIS_PASSWORD': ''
-})
 
 @app.route('/')
 @cache.cached(timeout=60)
