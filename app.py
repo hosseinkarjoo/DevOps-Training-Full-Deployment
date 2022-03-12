@@ -22,7 +22,7 @@ config = {
   'CACHE_REDIS_DB': '',
   'CACHE_REDIS_PASSWORD': ''
 }
-
+app.config["CACHE_TYPE"] = "null"
 app.config.from_object(config)
 cache.init_app(app)
 
