@@ -15,7 +15,7 @@ pipeline {
                 git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'project-compose', credentialsId: 'github_creds'
                 }
             }
-        stage ('Build Docker Image and Push to dockerHub') {
+        stage ('Build app Docker Image and Push to dockerHub') {
             dir(/app){
                 steps {
                     script {
@@ -27,6 +27,8 @@ pipeline {
                     }
                 }
             }
+        }
+        stage ('Build Docker Image and Push to dockerHub') {
             dir(/api){
                 steps {
                     script {
@@ -38,6 +40,8 @@ pipeline {
                     }
                 }
             }
+        }
+        stage ('Build Docker Image and Push to dockerHub') {
             dir(/db){
                 steps {
                     script {
