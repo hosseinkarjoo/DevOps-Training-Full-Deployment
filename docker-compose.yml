@@ -22,7 +22,7 @@ services:
     app:
         container_name: devops-training-app
         build: ./app/
-        image: hosseinkarjoo/devops-training-api
+        image: hosseinkarjoo/devops-training-api:${BUILD_NUMBER}
         ports:
             - '80:5000'
         networks:
@@ -31,7 +31,7 @@ services:
     db:
         container_name: devops-training-db
         build: ./db/
-        image: hosseinkarjoo/devops-training-db
+        image: hosseinkarjoo/devops-training-db:${BUILD_NUMBER}
         networks:
             - main-net
         volumes:
