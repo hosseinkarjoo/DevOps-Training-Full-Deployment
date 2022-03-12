@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flaskext.mysql import MySQL
-from flask.ext.cache import Cache
+from flaskext.cache import Cache
 app = Flask(__name__)
 mysql = MySQL()
 
