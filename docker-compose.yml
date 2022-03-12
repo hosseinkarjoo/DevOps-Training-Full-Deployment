@@ -3,7 +3,7 @@ services:
     api:
         container_name: devops-training-api
         build: ./api/
-        image: hosseinkarjoo/devops-training-app:${BUILD_NUMBER}
+        image: ${dockerhubapi}:${BUILD_NUMBER}
 #        env_file:
 #            - env
         ports: 
@@ -22,7 +22,7 @@ services:
     app:
         container_name: devops-training-app
         build: ./app/
-        image: hosseinkarjoo/devops-training-api:${BUILD_NUMBER}
+        image: ${dockerhubapp}:${BUILD_NUMBER}
         ports:
             - '80:5000'
         networks:
@@ -31,7 +31,7 @@ services:
     db:
         container_name: devops-training-db
         build: ./db/
-        image: hosseinkarjoo/devops-training-db:${BUILD_NUMBER}
+        image: ${dockerhubdb}:${BUILD_NUMBER}
         networks:
             - main-net
         volumes:
