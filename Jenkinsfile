@@ -38,7 +38,7 @@ pipeline {
                     try {
                         sh 'docker container stop ${dockercontainername}'
                         sh 'docker container rm ${dockercontainername}'
-                        sh 'docker image rm ${dockerhubReg}'
+                        sh 'docker image rm ${dockerhubReg}:${BUID_NUMBER}'
                     } 
                     catch (err) {
                         echo: 'ERROORR'
