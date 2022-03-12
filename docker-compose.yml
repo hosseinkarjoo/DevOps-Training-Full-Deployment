@@ -3,8 +3,8 @@ services:
     api:
         container_name: devops-training-api
         build: ./api/
-        env_file:
-            - env
+#        env_file:
+#            - env
         ports: 
             - '8080:5001'
         networks:
