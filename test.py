@@ -17,5 +17,5 @@ if statuscode.status_code == 200:
     print(f"OK{statuscode}")
 else:
     print(f"ERROR{statuscode}")
-    sys.exit(1)
+    exit(1)
 
