@@ -3,7 +3,7 @@ services:
     api:
         container_name: devops-training-api
         build: ./api/
-        image: hosseinkarjoo/devops-training-app
+        image: hosseinkarjoo/devops-training-app: ${BUILD_NUMBER}
 #        env_file:
 #            - env
         ports: 
