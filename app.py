@@ -24,8 +24,10 @@ config = {
 }
 #app.config["CACHE_TYPE"] = "null"
 app.config.from_object(config)
-cache.init_app(app)
+#cache.init_app(app)
+
 cache = Cache(app)
+cache.init_app(app)cache.init_app(app)
 
 
 @app.route('/')
