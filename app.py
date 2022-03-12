@@ -15,7 +15,7 @@ mysql.init_app(app)
 # Redis Cache Config
 cache = Cache()
 
-app.config = {
+config = {
   'CACHE_TYPE': 'redis',
   'CACHE_REDIS_HOST': 'devops-training-Redis',
   'CACHE_REDIS_PORT': 6379,
@@ -23,7 +23,8 @@ app.config = {
   'CACHE_REDIS_PASSWORD': ''
 }
 
-
+app.config.from_object(config)
+cache.init_app(app)
 
 @app.route('/')
 @cache.cached(timeout=60)
