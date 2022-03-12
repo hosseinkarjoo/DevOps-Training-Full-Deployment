@@ -1,0 +1,44 @@
+Version: '3'
+services:
+    api:
+        container_name: devops-training-api
+        build: ./api/
+        env_file:
+            - env
+        ports: 
+            - '8080:5001'
+        networks:
+            - main-net
+
+    redis:
+        container_name: devops-training-redis
+        image: redis
+        networks:
+            - main-net
+                
+
+
+    app:
+        container_name: devops-training-app
+        build: ./app/
+        ports:
+            - '80:5000'
+        networks:
+            - main-net
+
+    db:
+        container_name: devops-training-db
+        biuld: ./db/
+        networks:
+            - main-net
+        volumes:
+            - mysqldb:/var/lib/mysql
+
+
+
+networks:
+    main-net:
+        bridge
+
+volumes:
+    mysqldb
