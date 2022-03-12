@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        dockerhubReg = "hosseinkarjoo/devops-training-app"
+        dockerhubReg = "hosseinkarjoo/devops-training-api"
         dockercontainername = "devops-training-API"
         dockercontainerRedis = "devops-training-Redis"
     }
