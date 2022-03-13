@@ -49,6 +49,13 @@ pipeline {
                 }
             }
         }
+       stage ('test') {
+            steps {
+                script { 
+                    sh'docker container exec -i devops-training-db mysql show databases;'
+                }
+            }
+       }
     }
 }
 
