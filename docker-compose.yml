@@ -43,5 +43,5 @@ networks:
     main-net:
         driver: bridge
 
-#volumes:
-#    mysqldb:
+volumes:
+    mysqldb:
