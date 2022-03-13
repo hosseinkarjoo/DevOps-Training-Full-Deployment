@@ -5,7 +5,7 @@ services:
         build: ./api/
         image: ${nexusRegapi}:${BUILD_NUMBER}
         env_file:
-            - env
+            - ./api/env
         ports: 
             - '8080:5001'
         networks:
