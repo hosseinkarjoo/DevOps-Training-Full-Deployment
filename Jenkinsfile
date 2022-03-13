@@ -3,6 +3,7 @@ pipeline {
         dockerhubapp = "hosseinkarjoo/devops-training-app"
         dockerhubdb = "hosseinkarjoo/devops-training-db"
         dockerhubapi = "hosseinkarjoo/devops-training-api"
+        dockerhubReg = "hosseinkarjoo"
     }
     agent {
         node {
@@ -19,6 +20,15 @@ pipeline {
             steps {
                 script {
                     sh 'docker-compose build '
+                }
+            }
+        }
+        stage ('Third - Push Images to DockerHub') {
+            steps {
+                script {
+                    sh 'docker login -u dockerhubReg -p hub_credentialsId'
+                    sh 'docker-compose push'
+                    }
                 }
             }
         }
