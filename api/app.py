@@ -12,7 +12,7 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = '123qwerR'
 app.config['MYSQL_DATABASE_DB'] = 'pythonlogin'
-app.config['MYSQL_DATABASE_HOST'] = 'devops-training-database'
+app.config['MYSQL_DATABASE_HOST'] = 'devops-training-db'
 
 mysql.init_app(app)
 
