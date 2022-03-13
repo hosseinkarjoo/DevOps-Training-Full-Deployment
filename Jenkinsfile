@@ -39,6 +39,7 @@ pipeline {
             steps {
                 script {
                     try {
+                        sh'docker image rmi $(docker container ls -qa) --force'
                         sh'docker-compose down'
                         sh'docker-compose rm --force'
                     }
