@@ -28,9 +28,9 @@ pipeline {
                 script {
                     sh 'docker login -u dockerhubReg -p hub_credentialsId'
                     sh 'docker-compose push'
-                    }
                 }
             }
         }
     }
 }
+
