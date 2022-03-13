@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = 'your secret key'
 
 # Enter your database connection details below
-app.config['MYSQL_HOST'] = 'devops-training-database'
+app.config['MYSQL_HOST'] = 'devops-training-db'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '123qwerR'
 app.config['MYSQL_DB'] = 'pythonlogin'
