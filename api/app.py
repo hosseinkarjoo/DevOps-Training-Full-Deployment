@@ -1,10 +1,10 @@
 from flask import Flask, jsonify
 from flaskext.mysql import MySQL
 from flask_caching import Cache
-from config import BaseConfig
+#from config import BaseConfig
 app = Flask(__name__)
-app.config.from_object(BaseConfig)
-cache = Cache(app)
+#app.config.from_object(BaseConfig)
+#cache = Cache(app)
 
 mysql = MySQL()
 
@@ -21,7 +21,7 @@ mysql.init_app(app)
 
 
 @app.route('/')
-@cache.cached(timeout=60)
+#@cache.cached(timeout=60)
 def get():
     cur = mysql.connect().cursor()
     cur.execute('''select * from pythonlogin.accounts''')
