@@ -42,6 +42,9 @@ pipeline {
                         sh'docker-compose down'
                         sh'docker-compose rm --force'
                     }
+                    catch (err) {
+                        echo: 'EROR'
+                    }    
                     sh'docker-compose up'
                 }
             }
