@@ -27,10 +27,10 @@ pipeline {
         stage ('Third - Push Images to DockerHub') {
             steps {
                 script {
-                    sh 'echo $dockerhubReg'
-                    sh 'echo $hub_credentialsId'
-                    sh 'docker login -u=dockerhubReg -p=$dockerhubpass'
-                    sh 'docker-compose push'
+                    docker.withRegistry('https://registry.hub.docker.com', 'hub_credentialsId') {
+                        sh 'docker-compose push'
+                    }
+                    
                 }
             }
         }
