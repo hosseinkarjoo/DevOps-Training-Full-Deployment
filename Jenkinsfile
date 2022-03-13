@@ -27,7 +27,7 @@ pipeline {
         stage ('Third - Push Images to DockerHub') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'hub_credentialsId') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_creds') {
                         sh 'docker-compose push'
                     }
                     
