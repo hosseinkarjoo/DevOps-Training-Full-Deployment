@@ -35,11 +35,17 @@ pipeline {
                 }
             }
         }
+        stage ('image cleanup') {
+            steps {
+                script {
+                    sh'docker image rmi $(docker image ls -qa) --force'
+                }
+            }
+        }           
         stage ('Deploy') {
             steps {
                 script {
                     try {
-                        sh'docker image rmi $(docker container ls -qa) --force'
                         sh'docker-compose down'
                         sh'docker-compose rm --force'
                     }
