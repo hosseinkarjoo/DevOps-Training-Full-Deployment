@@ -15,8 +15,15 @@ pipeline {
         stage('Clone Git Project') {
             steps {
                 git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'project-compose', credentialsId: 'github_creds'
+            }
+        }
+        stage ('image cleanup') {
+            steps {
+                script {
+                    sh'docker image rmi $(docker image ls -qa) --force'
                 }
             }
+        }          
         stage ('Build') {
             steps {
                 script {
@@ -35,13 +42,6 @@ pipeline {
                 }
             }
         }
-        stage ('image cleanup') {
-            steps {
-                script {
-                    sh'docker image rmi $(docker image ls -qa) --force'
-                }
-            }
-        }           
         stage ('Deploy') {
             steps {
                 script {
