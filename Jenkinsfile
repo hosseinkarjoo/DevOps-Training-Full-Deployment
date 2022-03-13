@@ -27,7 +27,7 @@ pipeline {
         stage ('Third - Push Images to DockerHub') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: nexusReg-Creds, passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+                    withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
                         sh'docker login http://172.31.42.252:9001/repository/docker-reg'
                         sh 'docker-compose push'
                     }
