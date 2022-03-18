@@ -1,9 +1,9 @@
 pipeline {
     environment {
-        nexusRegapp = "172.31.42.252:9001/devops-training-app"
-        nexusRegdb = "172.31.42.252:9001/devops-training-db"
-        nexusRegapi = "172.31.42.252:9001/devops-training-api"
-        nexusReg = "172.31.42.252:9001"
+        nexusRegapp = "c4df90f5fc3c.mylabserver.com:9001/devops-training-app"
+        nexusRegdb = "c4df90f5fc3c.mylabserver.com:9001/devops-training-db"
+        nexusRegapi = "c4df90f5fc3c.mylabserver.com:9001/devops-training-api"
+        nexusReg = "1c4df90f5fc3c.mylabserver.com:9001"
         dockerhubpass = credentials('hub_credentialsId')
     }
     agent {
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
-                        sh'docker login http://172.31.42.252:9001/repository/docker-reg'
+                        sh'docker login http://c4df90f5fc3c.mylabserver.com:9001/repository/docker-reg'
                         sh 'docker-compose push'
                     }
                     
