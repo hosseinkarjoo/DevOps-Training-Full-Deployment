@@ -4,7 +4,6 @@ pipeline {
         nexusRegdb = "c4df90f5fc3c.mylabserver.com:8082/devops-training-db"
         nexusRegapi = "c4df90f5fc3c.mylabserver.com:8082/devops-training-api"
         nexusReg = "1c4df90f5fc3c.mylabserver.com:8082"
-        dockerhubpass = credentials('hub_credentialsId')
     }
     agent {
         node {
