@@ -23,7 +23,7 @@ pipeline {
                         sh'docker image rmi $(docker image ls -qa) --force'
                     }
                     catch (err) {
-                        echo: ERRORR
+                        echo: 'ERRORR'
                     }
                 }
             }
