@@ -19,7 +19,12 @@ pipeline {
         stage ('image cleanup') {
             steps {
                 script {
-                    sh'docker image rmi $(docker image ls -qa) --force'
+                    try {
+                        sh'docker image rmi $(docker image ls -qa) --force'
+                    }
+                    catch (err) {
+                        echo: ERRORR
+                    }
                 }
             }
         }          
