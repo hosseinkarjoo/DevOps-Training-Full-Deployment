@@ -56,14 +56,14 @@ pipeline {
                     catch (err) {
                         echo: 'EROR'
                     }    
-                    sh'docker stack deploy --compose-file docker-compose-stack.yml faslk_app'
+                    sh'docker stack deploy --compose-file docker-compose-stack.yml flask_app'
                 }
             }
         }
        stage ('test') {
             steps {
                 script { 
-                    sh'docker container exec -i devops-training-db mysql show databases;'
+                    sh'docker container exec -i flask_app_devops-training-db mysql show databases;'
                 }
             }
        }
