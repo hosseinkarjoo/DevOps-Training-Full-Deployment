@@ -56,7 +56,7 @@ pipeline {
                     catch (err) {
                         echo: 'EROR'
                     }    
-                    sh'docker stack deploy --compose-file docker-compose-stack.yml'
+                    sh'docker stack deploy --compose-file docker-compose-stack.yml faslk_app'
                 }
             }
         }
