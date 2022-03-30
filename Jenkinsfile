@@ -60,13 +60,13 @@ pipeline {
                 }
             }
         }
-#       stage ('test') {
-#            steps {
-#                script { 
-#                    sh'docker container exec -i flask_app_devops-training-db mysql show databases;'
-#                }
-#            }
-#       }
+//       stage ('test') {
+//            steps {
+//                script { 
+//                    sh'docker container exec -i flask_app_devops-training-db mysql show databases;'
+//                }
+//            }
+//       }
     }
 }
 
