@@ -56,7 +56,7 @@ pipeline {
                     catch (err) {
                         echo: 'EROR'
                     }    
-                    sh'docker-compose up'
+                    sh'docker stack deploy --compose-file docker-compose-stack.yml'
                 }
             }
         }
