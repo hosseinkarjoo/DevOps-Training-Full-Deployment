@@ -63,7 +63,7 @@ pipeline {
        stage ('test') {
             steps {
                 script { 
-                    sh'docker container run -it --rm --network flask_app_main-net busybox telnet flask_app_devops-training-db 3306'
+                    sh'timeout 5s docker container run -i --rm --network flask_app_main-net busybox telnet flask_app_devops-training-db 3306 '
                 }
             }
        }
