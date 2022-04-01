@@ -43,6 +43,7 @@ networks:
     main-net:
         driver: overlay
         attachable: true
+        external: true
 
 volumes:
     mysqldb:
