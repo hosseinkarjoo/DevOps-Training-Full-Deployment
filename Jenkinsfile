@@ -62,11 +62,16 @@ pipeline {
         }
        stage ('test') {
             steps {
-                script { 
+                script {
+                    try {
                     sh'''#!/usr/bin/env bash
                         timeout 5s docker container run -i --rm --network flask_app_main-net busybox telnet flask_app_devops-training-db 3306 > /tmp/mysql-test
-                        cat /tmp/mysql-test | grep Connect
                         '''
+                    }
+                    catch (err) {
+                        echo: 'ERRORR'
+                    }
+                    sh'cat /tmp/mysql-test | grep Connect'
                 }
             }
        }
