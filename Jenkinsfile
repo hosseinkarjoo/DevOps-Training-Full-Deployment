@@ -60,19 +60,19 @@ pipeline {
                 }
             }
         }
-       stage ('test') {
-            steps {
-                script {
-                    try {
-                    sh'timeout 5s docker container run -i --rm --network flask_app_main-net mikesplain/telnet flask_app_devops-training-app 80 > /tmp/mysql-test'
-                    }
-                    catch (err) {
-                        echo: 'ERRORR'
-                    }
-                    sh'cat /tmp/mysql-test | grep Connect'
-                }
-            }
-       }
+//       stage ('test') {
+//           steps {
+//              script {
+//                 try {
+//                sh'timeout 5s docker container run -i --rm --network flask_app_main-net mikesplain/telnet flask_app_devops-training-app 80 > /tmp/mysql-test'
+//               }
+//              catch (err) {
+//                 echo: 'ERRORR'
+//            }
+//           sh'cat /tmp/mysql-test | grep Connect'
+//      }
+// }
+// }
     }
 }
 
