@@ -20,4 +20,4 @@ services:
 
 networks:
     monitoring-net:
-        driver: bridge
+        driver: overlay
