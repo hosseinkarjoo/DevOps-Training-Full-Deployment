@@ -42,13 +42,13 @@ pipeline {
             agent { label 'prod-stage' }
                 steps {
                     script {
-                        try {
-                            sh'docker-compose down'
-                            sh'docker-compose rm --force'
-                        }
-                        catch (err) {
-                            echo: 'EROR'
-                        }    
+//                        try {
+ //                           sh'docker-compose down'
+  //                          sh'docker-compose rm --force'
+ //                       }
+//                        catch (err) {
+//                            echo: 'EROR'
+//                        }    
                         sh'docker stack deploy --compose-file docker-compose-slave-node.yml monitoring'
                     }
                 }
