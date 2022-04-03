@@ -49,7 +49,7 @@ pipeline {
 //                        catch (err) {
 //                            echo: 'EROR'
 //                        }    
-                        sh'docker stack deploy --compose-file docker-compose-slave-node.yml monitoring'
+                        sh'docker stack deploy --compose-file docker-compose-slave-node.yml flask_app'
                     }
                 }
         }
