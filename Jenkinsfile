@@ -39,7 +39,7 @@ pipeline {
             }
         }
         stage ('Deploy to Jenkins-Slave-Node') {
-            agent { label 'master' }
+            agent { label 'prod-stage' }
                 steps {
                     script {
                         try {
