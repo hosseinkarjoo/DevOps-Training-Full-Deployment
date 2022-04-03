@@ -1,7 +1,7 @@
 version: '3'
 services:
-    monitoring-prometheus:
-        container_name: monitoring-prometheus
+    prometheus:
+#        container_name: monitoring-prometheus
         image: prom/prometheus
         ports: 
             - '9090:9090'
@@ -10,8 +10,8 @@ services:
         networks:
             - monitoring-net
                
-    monitoring-grafana:
-        container_name: monitoring-grafana
+    grafana:
+#        container_name: monitoring-grafana
         image: grafana/grafana
         ports:
             - '3000:3000'
