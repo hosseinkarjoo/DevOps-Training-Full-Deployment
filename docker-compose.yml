@@ -1,0 +1,23 @@
+version: '3'
+services:
+    prometheus:
+        container_name: monitoring-prometheus
+        image: prom/prometheus
+        ports: 
+            - '9090:9090'
+        volumes:
+            - /var/lib/jenkins/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+        networks:
+            - monitoring-net
+               
+    grafana:
+        container_name: monitoring-grafana
+        image: grafana/grafana
+        ports:
+            - '3000:3000'
+        networks:
+            - monitoring-net
+
+networks:
+    monitoring-net:
+        driver: bridge
