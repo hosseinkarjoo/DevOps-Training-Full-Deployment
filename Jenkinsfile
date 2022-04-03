@@ -1,10 +1,6 @@
 pipeline {
-    environment {
-        nexusRegapp = "c4df90f5fc3c.mylabserver.com:8082/devops-training-app"
-        nexusRegdb = "c4df90f5fc3c.mylabserver.com:8082/devops-training-db"
-        nexusRegapi = "c4df90f5fc3c.mylabserver.com:8082/devops-training-api"
-        nexusReg = "1c4df90f5fc3c.mylabserver.com:8082"
-    }
+//    environment {
+//    }
     agent {
         node {
             label 'monitoring'
@@ -28,25 +24,7 @@ pipeline {
                 }
             }
         }          
-        stage ('Build') {
-            steps {
-                script {
-                    sh 'docker-compose build '
-                }
-            }
-        }
-        stage ('Third - Push Images to DockerHub') {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
-                        sh'docker login http://c4df90f5fc3c.mylabserver.com:8082/repository/docker-reg'
-                        sh 'docker-compose push'
-                    }
-                    
-                }
-            }
-        }
-        stage ('Deploy') {
+        stage ('Deploy to Minoting-Stack') {
             steps {
                 script {
                     try {
@@ -56,9 +34,24 @@ pipeline {
                     catch (err) {
                         echo: 'EROR'
                     }    
-                    sh'docker stack deploy --compose-file docker-compose-stack.yml monitoring'
+                    sh'docker stack deploy --compose-file docker-compose-monitoring-stack.yml monitoring'
                 }
             }
+        }
+        stage ('Deploy to Jenkins-Slave-Node') {
+            agent { label 'master' }
+                steps {
+                    script {
+                        try {
+                            sh'docker-compose down'
+                            sh'docker-compose rm --force'
+                        }
+                        catch (err) {
+                            echo: 'EROR'
+                        }    
+                        sh'docker stack deploy --compose-file docker-compose-slave-node.yml monitoring'
+                    }
+                }
         }
 //       stage ('test') {
 //           steps {
