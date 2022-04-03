@@ -13,6 +13,10 @@ services:
     grafana:
 #        container_name: monitoring-grafana
         image: grafana/grafana
+        volumes:
+            - ./datasource.yml:/etc/grafana/provisioning/datasource/datasource.yml
+            - ./dashbaord.yml:/etc/grafana/provisioning/dashboards/dashbaord.yml
+            - ./grafana-dash.json:/etc/grafana/provisioning/dashboards/grafana-dash.json
         ports:
             - '3000:3000'
         networks:
