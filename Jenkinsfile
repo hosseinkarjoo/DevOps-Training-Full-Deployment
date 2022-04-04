@@ -28,7 +28,13 @@ pipeline {
             agent { label 'prod-stage' }
                 steps {
                     script {
-                        sh'/bin/bash ./prometheus-slave-config.sh'
+//                        sh'/bin/bash ./prometheus-slave-config.sh'
+                        sh '''
+                        MONITOR_PUB_IP=$(curl ipv4.icanhazip.com)
+                        MONITOR_PRV_IP=$(/usr/sbin/ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)
+                        echo $MONITOR_PUB_IP
+                        echo $MONITOR_PRV_IP
+                        '''
                     }
                 }
         }
