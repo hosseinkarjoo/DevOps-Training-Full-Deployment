@@ -29,6 +29,7 @@ pipeline {
                 steps {
                     script {
 //                        sh'/bin/bash ./prometheus-slave-config.sh'
+                        sh(script:'MONITOR_PRV_IP=$(/usr/sbin/ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)')
                         sh '''
                         MONITOR_PUB_IP=$(curl ipv4.icanhazip.com)
                         MONITOR_PRV_IP=$(/usr/sbin/ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)
