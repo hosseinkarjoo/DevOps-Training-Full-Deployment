@@ -23,7 +23,24 @@ pipeline {
                     }
                 }
             }
-        }          
+        }
+        stage('gather info - ip addresses of Slave Node') {
+            agent { label 'prod-stage' }
+                steps {
+                    script {
+                        sh'SLAVE_PUB_IP=$(curl ipv4.icanhazip.com)'
+                        sh'SLAVE_PRV_IP=$(ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)'
+                    }
+                }
+        }
+        stage('gather info - ip addresses of Monitoring Node') {
+            steps {
+                script {
+                    sh'MONITOR_PUB_IP=$(curl ipv4.icanhazip.com)'
+                    sh'MONITOR_PRV_IP=$(ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)'
+                }
+            }
+        }
         stage ('Deploy to Minoting-Stack') {
             steps {
                 script {
