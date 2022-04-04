@@ -31,7 +31,7 @@ pipeline {
    //                     sh'/bin/bash ./prometheus-slave-config.sh'
                         sh '''
                             #!/bin/bash
-                            ip addr show eth0
+                            /usr/sbin/ip addr show eth0
                             '''
                     }
                 }
