@@ -28,20 +28,14 @@ pipeline {
             agent { label 'prod-stage' }
                 steps {
                     script {
-                        sh'SLAVE_PUB_IP=$(curl ipv4.icanhazip.com)'
-                        sh'''
-                            SLAVE_PRV_IP=$(ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)
-                            '''
+                        sh'/bin/bash ./prometheus-slave-config.sh'
                     }
                 }
         }
-        stage('gather info - ip addresses of Monitoring Node') {
+        stage('gather info - Buld prometheus config file') {
             steps {
                 script {
-                    sh'MONITOR_PUB_IP=$(curl ipv4.icanhazip.com)'
-                    sh'''
-                        MONITOR_PRV_IP=$(ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)
-                        '''
+                    sh'/bin/bash ./prometheus-monitor-config.sh'
                 }
             }
         }
