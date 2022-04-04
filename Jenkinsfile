@@ -28,11 +28,7 @@ pipeline {
             agent { label 'prod-stage' }
                 steps {
                     script {
-   //                     sh'/bin/bash ./prometheus-slave-config.sh'
-                        sh '''
-                            #!/bin/bash
-                            /usr/sbin/ip addr show eth0
-                            '''
+                        sh'/bin/bash ./prometheus-slave-config.sh'
                     }
                 }
         }
