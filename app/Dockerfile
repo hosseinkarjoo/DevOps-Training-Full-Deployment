@@ -2,6 +2,7 @@ FROM python:3
 
 ENV FLASK_APP=main.py
 ENV FLASK_DEBUG=1
+ENV DEBUG_METRICS=true
 
 RUN mkdir /app     
 WORKDIR /app
