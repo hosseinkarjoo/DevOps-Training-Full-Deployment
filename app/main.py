@@ -7,7 +7,7 @@ from prometheus_flask_exporter import PrometheusMetrics
 app = Flask(__name__)
 
 ############## MONITORING #########################################
-PrometheusMetrics(app)
+metrics = PrometheusMetrics(app)
 ################## END of MONITORING ###############################
 # Change this to your secret key (can be anything, it's for extra protection)
 app.secret_key = 'your secret key'
