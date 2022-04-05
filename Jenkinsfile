@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Clone Git Project') {
             steps {
+                sh'rm -rf ./*'
                 git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'monitoring', credentialsId: 'github_creds'
             }
         }
@@ -24,22 +25,14 @@ pipeline {
                 }
             }
         }
-//        stage('gather info - ip addresses of Slave Node') {
-//            agent { label 'prod-stage' }
-//                steps {
-//                    script {
-//                        ansiblePlaybook become: true, colorized: true, credentialsId: 'jenkins-slave', disableHostKeyChecking: true, installation: 'ansible', playbook: 'prometheus-config.yaml'
-//                        sh'/bin/bash ./prometheus-slave-config.sh'
-//                        sh(script:"MONITOR_PRV_IP=$(/usr/sbin/ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)")
- //                       sh '''
-//                        MONITOR_PUB_IP=$(curl ipv4.icanhazip.com)
-//                        MONITOR_PRV_IP=$(/usr/sbin/ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)
- //                       echo $MONITOR_PUB_IP
- //                       echo $MONITOR_PRV_IP
- //                       '''
- //                   }
-  //              }
-  //      }
+        stage('remove the stack') {
+            agent { label 'prod-stage' }
+                steps {
+                    script {
+                        sh'docker stack rm monitoring'
+                    }
+                }
+        }
         stage('gather info - Buld prometheus config file') {
             steps {
                 script {
@@ -56,7 +49,7 @@ pipeline {
   //                  }
  //                   catch (err) {
  //                       echo: 'EROR'
- //                   }    
+ //                   }
                     sh'docker stack deploy --compose-file docker-compose-monitoring-stack.yml monitoring'
                 }
             }
