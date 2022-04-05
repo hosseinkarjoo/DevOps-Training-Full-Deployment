@@ -24,11 +24,11 @@ pipeline {
                 }
             }
         }
-        stage('gather info - ip addresses of Slave Node') {
-            agent { label 'prod-stage' }
-                steps {
-                    script {
-                        ansiblePlaybook become: true, colorized: true, credentialsId: 'jenkins-slave', disableHostKeyChecking: true, installation: 'ansible', playbook: 'prometheus-config.yaml'
+//        stage('gather info - ip addresses of Slave Node') {
+//            agent { label 'prod-stage' }
+//                steps {
+//                    script {
+//                        ansiblePlaybook become: true, colorized: true, credentialsId: 'jenkins-slave', disableHostKeyChecking: true, installation: 'ansible', playbook: 'prometheus-config.yaml'
 //                        sh'/bin/bash ./prometheus-slave-config.sh'
 //                        sh(script:"MONITOR_PRV_IP=$(/usr/sbin/ip a show eth0 | grep 'inet\b' | awk '{print $2}' | cut -d/ -f1)")
  //                       sh '''
