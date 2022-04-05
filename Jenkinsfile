@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Clone Git Project') {
             steps {
+                sh'rm -rf ./*'
                 git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'monitoring', credentialsId: 'github_creds'
             }
         }
@@ -56,7 +57,8 @@ pipeline {
   //                  }
  //                   catch (err) {
  //                       echo: 'EROR'
- //                   }    
+ //                   }
+                    sh'docker stack rm monitoring'
                     sh'docker stack deploy --compose-file docker-compose-monitoring-stack.yml monitoring'
                 }
             }
