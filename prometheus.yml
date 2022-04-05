@@ -20,7 +20,7 @@ scrape_configs:
 
     static_configs:
 
-    - targets: ['SLAVE_PUB_IP:8080']
+    - targets: ['SLAVE_PUB_IP:8081']
 
       labels:
 
