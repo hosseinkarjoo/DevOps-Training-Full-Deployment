@@ -37,9 +37,9 @@ pipeline {
  //                       echo $MONITOR_PUB_IP
  //                       echo $MONITOR_PRV_IP
  //                       '''
-                    }
-                }
-        }
+ //                   }
+  //              }
+  //      }
         stage('gather info - Buld prometheus config file') {
             steps {
                 script {
