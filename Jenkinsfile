@@ -28,7 +28,8 @@ pipeline {
         stage('remove the stack') {
             agent { label 'prod-stage' }
                 steps {
-                      sh'docker stack rm monitoring'
+                    script {
+                        sh'docker stack rm monitoring'
                     }
                 }
         }
