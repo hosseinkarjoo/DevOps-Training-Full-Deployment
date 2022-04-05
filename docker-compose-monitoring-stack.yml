@@ -14,9 +14,9 @@ services:
 #        container_name: monitoring-grafana
         image: grafana/grafana
         volumes:
-            - /var/lib/jenkins/workspace/Monitoring-stack/datasource.yml:/etc/grafana/provisioning/datasource/datasource.yml
-            - /var/lib/jenkins/workspace/Monitoring-stack/dashbaord.yml:/etc/grafana/provisioning/dashboards/dashbaord.yml
-            - /var/lib/jenkins/workspace/Monitoring-stack/grafana-dash.json:/etc/grafana/provisioning/dashboards/grafana-dash.json
+            - ./datasource.yml:/etc/grafana/provisioning/datasource/datasource.yml
+            - ./dashbaord.yml:/etc/grafana/provisioning/dashboards/dashbaord.yml
+            - ./grafana-dash.json:/etc/grafana/provisioning/dashboards/grafana-dash.json
         ports:
             - '3000:3000'
         networks:
