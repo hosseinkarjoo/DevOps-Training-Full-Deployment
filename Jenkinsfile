@@ -26,12 +26,11 @@ pipeline {
             }
         }
         stage('remove the stack') {
-            agent { label 'prod-stage' }
-                steps {
-                    script {
-                        sh'docker stack rm monitoring'
-                    }
+            steps {
+                script {
+                    sh'docker stack rm monitoring'
                 }
+            }
         }
         stage('gather info - Buld prometheus config file') {
             steps {
