@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
 
