@@ -2,14 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
-from prometheus_flask_exporter import PrometheusMetrics
+#from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
 
 ############## MONITORING #########################################
-metrics = PrometheusMetrics(app=None, path='/metrics')
+#metrics = PrometheusMetrics(app=None, path='/metrics')
 
-app.debug = True
+#app.debug = True
 
 ################## END of MONITORING ###############################
 # Change this to your secret key (can be anything, it's for extra protection)
