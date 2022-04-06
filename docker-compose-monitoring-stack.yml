@@ -22,6 +22,8 @@ services:
             - '3000:3000'
         networks:
             - monitoring-net
+        environment:
+            - GF_SECURITY_ADMIN_PASSWORD=123@qwer
 
 networks:
     monitoring-net:
