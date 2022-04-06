@@ -35,3 +35,11 @@ scrape_configs:
       labels:
 
         alias: 'node-exporter'
+        
+  - job_name: 'mysql-Exporter'
+  
+    static_configs:
+    
+    - targets: ['SLAVE_PUB_IP:9104']
+      labels:
+        alias: 'mysql-Exporter'
