@@ -1,31 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@hosseinkarjoo 
-Branch 1.x was renamed to pmm-1.x.
-percona
-/
-grafana-dashboards
-Public
-Code
-Pull requests
-15
-Actions
-Security
-Insights
-grafana-dashboards/dashboards/MySQL_Overview.json
-@adivinho
-adivinho PMM-4685 MongoDB Cluster drop-down list doesnt get updated on removal
-Latest commit 98924a8 on Nov 11, 2019
- History
- 6 contributors
-@roman-vynar@adivinho@askomorokhov@rnovikovP@michaelcoburn@AlekSi
- 4733 lines (4733 sloc)  163 KB
-   
 {
     "annotations": {
         "list": [
@@ -4759,15 +4731,3 @@ Latest commit 98924a8 on Nov 11, 2019
     "uid": "MQWgroiiz",
     "version": 1
 }
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
