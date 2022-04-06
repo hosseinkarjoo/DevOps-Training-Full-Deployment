@@ -518,7 +518,7 @@
             "thresholds": "40,80",
             "title": "Buffer Pool Size of Total RAM",
             "transparent": false,
-            "type": "pmm-singlestat-panel",
+            "type": "singlestat",
             "valueFontSize": "80%",
             "valueMaps": [],
             "valueName": "current"
