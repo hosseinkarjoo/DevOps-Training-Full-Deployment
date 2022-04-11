@@ -20,6 +20,10 @@ services:
             - '9100:9100'
         networks:
             - main-net
+        volumes:
+            - /:/rootfs:ro
+            - /proc:/proc:ro
+            - /sys:/sys:ro
 
 networks:
     main-net:
