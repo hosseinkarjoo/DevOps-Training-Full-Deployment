@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
-                        sh'docker login http://c4df90f5fc3c.mylabserver.com:8082/repository/docker-reg'
+                        sh'docker login http://54.167.67.247:8082/repository/docker-reg'
                         sh 'docker-compose push'
                     }
                     
