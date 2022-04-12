@@ -1,4 +1,9 @@
 groups:
+- name: Uptime
+  rules:
+    - record: job:uptime:avarage:fl
+      expr: avg without (instance) up
+
 - name: containers
   rules:
   - alert: ContainerCpuUsage
