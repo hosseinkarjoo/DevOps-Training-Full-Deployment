@@ -38,10 +38,10 @@ pipeline {
         stage ('Third - Push Images to DockerHub') {
             steps {
                 script {
-#                    withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+//                    withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
                     sh'docker login -u "admin" -p "123@qwer" http://35.170.57.9/:8082/repository/docker-reg'
                     sh 'docker-compose push'
-#                    }
+//                    }
                     
                 }
             }
