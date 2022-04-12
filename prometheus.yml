@@ -2,13 +2,15 @@ global:
   scrape_interval: 15s
 
 rule_files:
-  - prometheus.rules.yml
+  - 'alert.rules'
+
 
 alerting:
   alertmanagers:
-  - static_configs:
+  - scheme: http
+    static_configs:
     - targets:
-      - localhost:9093
+      - "MONITOR_PUB_IP:9093"
 
 scrape_configs:
 
