@@ -12,7 +12,7 @@ alerting:
       localhost:9093
       
 rule_files:
-  - 'rules.yml'
+  - 'prometheus.rules.yml'
 
 
 
