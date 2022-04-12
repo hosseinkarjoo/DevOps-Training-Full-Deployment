@@ -1,9 +1,9 @@
 pipeline {
     environment {
-        nexusRegapp = "54.147.38.45:8082/devops-training-app"
-        nexusRegdb = "54.147.38.45:8082/devops-training-db"
-        nexusRegapi = "54.147.38.45:8082/devops-training-api"
-        nexusReg = "54.147.38.45:8082"
+        nexusRegapp = "35.170.57.9:8082/devops-training-app"
+        nexusRegdb = "35.170.57.9:8082/devops-training-db"
+        nexusRegapi = "35.170.57.9:8082/devops-training-api"
+        nexusReg = "35.170.57.9:8082"
     }
     agent {
         node {
@@ -38,8 +38,8 @@ pipeline {
         stage ('Third - Push Images to DockerHub') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
-                        sh'docker login http://54.147.38.45:8082/repository/docker-reg'
+#                    withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+                        sh'docker login -u "admin" -p "123@qwer" http://35.170.57.9/:8082/repository/docker-reg'
                         sh 'docker-compose push'
                     }
                     
