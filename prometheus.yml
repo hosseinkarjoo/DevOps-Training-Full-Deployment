@@ -10,7 +10,7 @@ alerting:
       localhost:9093
       
 rule_files:
-  - rules.yml
+  - "rules.yml"
 
 
 
