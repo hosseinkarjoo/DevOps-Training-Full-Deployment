@@ -5,12 +5,12 @@ rule_files:
   - 'alert.rules'
 
 
-#alerting:
-#  alertmanagers:
-#  - scheme: http
-#    static_configs:
-#    - targets:
-#      - "MONITOR_PUB_IP:9093"
+alerting:
+  alertmanagers:
+  - scheme: http
+    static_configs:
+    - targets:
+      - "MONITOR_PUB_IP:9093"
 
 scrape_configs:
 
