@@ -7,7 +7,7 @@ services:
             - '9090:9090'
         volumes:
             - ./prometheus.yml:/etc/prometheus/prometheus.yml
-            - ./rules.yml:/etc/prometheus/rules.yml.yml
+            - ./rules.yml:/etc/prometheus/rules.yml
         networks:
             - monitoring-net
                
