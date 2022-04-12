@@ -11,11 +11,3 @@ groups:
       description: "Docker host is under high load, the avg load 1m is at {{ $value}}. Reported by instance {{ $labels.instance }} of job {{ $labels.job }}."
       
 
-  - alert: ContainerAbsent
-      expr: absent(container_last_seen)
-      for: 5m
-      labels:
-        severity: warning
-      annotations:
-        summary: Container absent (instance {{ $labels.instance }})
-        description: "A container is absent for 5 min\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
