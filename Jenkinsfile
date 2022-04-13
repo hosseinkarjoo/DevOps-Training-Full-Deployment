@@ -25,13 +25,13 @@ pipeline {
                 }
             }
         }
-//        stage('remove the stack') {
-//            steps {
-//                script {
- //                   sh'docker stack rm monitoring'
-  //              }
-   //         }
-    //    }
+        stage('remove the stack') {
+            steps {
+                script {
+                    sh'docker stack rm monitoring'
+                }
+            }
+        }
         stage('gather info - Buld prometheus config file') {
             steps {
                 script {
