@@ -52,6 +52,6 @@ scrape_configs:
       labels:
         alias: 'mysql-Exporter'
         
-  - job_name: 'docker'
-    static_configs:
-      - targets: ['SLAVE_PUB_IP:9323']
+#  - job_name: 'docker'
+#    static_configs:
+#      - targets: ['SLAVE_PUB_IP:9323']
