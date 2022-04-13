@@ -1,0 +1,30 @@
+global:
+  resolve_timeout: 5m
+  
+route:
+  group_by: ['alertmanager']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1m
+  receiver: 'slak'
+  routes:
+    - match:
+      severity: page
+    group_by: ['team']
+    receiver: 'slak'
+    routes:
+      - match:
+          team: hkarjoo
+          
+receivers:
+- name: 'slak'
+  slak_configs:
+    - channel: '#flask-app'
+    - api_url: 'https://hooks.slack.com/services/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'
+    
+inhibit_rules:
+  - source_match:
+        severity: 'critical'
+      target_match:
+        severity: 'warning'
+      equal: 'team'
