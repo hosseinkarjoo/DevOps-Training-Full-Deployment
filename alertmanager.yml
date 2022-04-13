@@ -9,7 +9,7 @@ route:
   receiver: 'slak'
   routes:
     - match:
-      severity: warning
+        severity: warning
     group_by: ['team']
     receiver: 'slak'
     routes:
