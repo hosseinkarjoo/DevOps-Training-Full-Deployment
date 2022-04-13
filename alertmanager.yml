@@ -1,13 +1,12 @@
 global:
-  resolve_timeout: 5m
-  
+ resolve_timeout: 1m
+ slack_api_url: 'https://hooks.slack.com/services/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'
+ 
 route:
-  receiver: 'slak'
-
-          
+ receiver: 'slack-notifications'
+ 
 receivers:
-- name: 'slak'
-  slak_configs:
-    - channel: '#flask-app'
-    - api_url: 'https://hooks.slack.com/services/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'
-    
+- name: 'slack-notifications'
+ slack_configs:
+ - channel: '#flask-app'
+   send_resolved: true
