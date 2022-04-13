@@ -9,7 +9,7 @@ route:
   receiver: 'slak'
   routes:
     - match:
-      severity: page
+      severity: warning
     group_by: ['team']
     receiver: 'slak'
     routes:
@@ -24,7 +24,7 @@ receivers:
     
 inhibit_rules:
   - source_match:
-        severity: 'critical'
+        severity: 'warning'
       target_match:
         severity: 'warning'
       equal: 'team'
