@@ -10,3 +10,4 @@ receivers:
   slack_configs:
   - channel: '#flask-app'
     send_resolved: true
+    text: 'HEY HEY HEY'
