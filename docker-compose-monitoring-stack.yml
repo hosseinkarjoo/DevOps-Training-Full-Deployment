@@ -26,16 +26,17 @@ services:
         environment:
             - GF_SECURITY_ADMIN_PASSWORD=123@qwer
             
-#    alertmanager:
-#        image: prom/alertmanager
-#        volumes:
-#            - ./alertmanager/:/etc/alertmanager/
-#        ports:
-#            - '9093:9093'
-#        networks:
-#            - monitoring-net
-#        environment:
-#            - GF_SECURITY_ADMIN_PASSWORD=123@qwer
+    alertmanager:
+        image: prom/alertmanager
+        volumes:
+            - ./alertmanager.yml/:/etc/alertmanager/alertmanager.yml
+        command:
+            - '-config.file=/etc/alertmanager/alertmanager.yml'
+        ports:
+            - '9093:9093'
+        networks:
+            - monitoring-net
+
 
 networks:
     monitoring-net:
