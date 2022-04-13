@@ -8,5 +8,5 @@ route:
 receivers:
 - name: 'slack-notifications'
   slack_configs:
- - channel: '#flask-app'
-   send_resolved: true
+  - channel: '#flask-app'
+    send_resolved: true
