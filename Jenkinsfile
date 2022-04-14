@@ -1,9 +1,9 @@
 pipeline {
     environment {
-        nexusRegapp = "3.81.53.243:8082/devops-training-app"
-        nexusRegdb = "3.81.53.243:8082/devops-training-db"
-        nexusRegapi = "3.81.53.243:8082/devops-training-api"
-        nexusReg = "3.81.53.243:8082"
+        nexusRegapp = "54.161.161.216:8082/devops-training-app"
+        nexusRegdb = "54.161.161.216:8082/devops-training-db"
+        nexusRegapi = "54.161.161.216:8082/devops-training-api"
+        nexusReg = "54.161.161.216:8082"
     }
     agent {
         node {
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
 //                    withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
-                    sh'docker login -u "admin" -p "123@qwer" http://3.81.53.243:8082/repository/docker-reg'
+                    sh'docker login -u "admin" -p "123@qwer" http://${nexusReg}/repository/docker-reg'
                     sh 'docker-compose push'
 //                    }
                     
