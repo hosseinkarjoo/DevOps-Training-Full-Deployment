@@ -19,3 +19,5 @@ services:
     environment:
       - 'ELASTICSEARCH_HOSTS=http://ek_elasticsearch:9200'
       - 'KIBANA_PASSWORD=123@qwer'
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=123@qwer
