@@ -4,7 +4,7 @@ services:
     image: elasticsearch
     container_name: elasticsearch
     environment:
-      - 'discovery.tye=single-node'
+      - 'discovery.type=single-node'
     expose:
       - 9200
     ports:
