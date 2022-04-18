@@ -5,6 +5,7 @@ services:
     container_name: elasticsearch
     environment:
       - 'discovery.type=single-node'
+      - 'ELASTIC_USERNAME=elasticadmin'
       - 'ELASTIC_PASSWORD=123@qwer'
     ports:
       - '9200:9200'
@@ -19,5 +20,5 @@ services:
     environment:
       - 'ELASTICSEARCH_HOSTS=http://ek_elasticsearch:9200'
       - 'KIBANA_PASSWORD=123@qwer'
-      - ELASTICSEARCH_USERNAME=elastic
-      - ELASTICSEARCH_PASSWORD=123@qwer
+      - 'ELASTICSEARCH_USERNAME=elasticadmin'
+      - 'ELASTICSEARCH_PASSWORD=123@qwer'
