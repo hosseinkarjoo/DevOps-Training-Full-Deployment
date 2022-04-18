@@ -65,7 +65,7 @@ pipeline {
                     script {
                         Node_IP=InetAddress.localHost.hostAddress
                         println InetAddress.localHost.hostAddress
-                        sh'ifconfig'
+                        sh'/usr/sbin/ifconfig'
                     }
                 }
         }    
