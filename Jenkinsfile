@@ -65,8 +65,11 @@ pipeline {
                     script {
                         Node_IP=InetAddress.localHost.hostAddress
                         println InetAddress.localHost.hostAddress
-                        env.LOGGING_PRV_IP = sh"/usr/sbin/ifconfig | grep '10.0.1' | /usr/bin/awk '{print \$2}'"
-                        sh'echo ${env.LOGGING_PRV_IP}'
+                        LOGGING_PRV_IP = sh (
+                            script: "/usr/sbin/ifconfig | grep '10.0.1' | /usr/bin/awk '{print \$2}'" ,
+                            returnStdout: true
+                        )
+                        echo: " somethinGGG ${LOGGING_PRV_IP}"
                     }
                 }
         }    
