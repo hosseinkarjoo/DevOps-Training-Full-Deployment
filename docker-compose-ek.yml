@@ -17,6 +17,5 @@ services:
     volumes:
       - ./kibana.yml:/usr/share/kibana/config/kibana.yml
     environment:
-      - 'ELASTICSEARCH_URL=http://ek_elasticsearch:9200'
       - 'ELASTICSEARCH_HOSTS=http://ek_elasticsearch:9200'
       - 'KIBANA_PASSWORD=123@qwer'
