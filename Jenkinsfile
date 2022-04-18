@@ -1,7 +1,7 @@
 pipeline {
     environment {
-        nexusRegfluentd = "54.89.240.16:8082/fluentd"
-        nexusReg = "54.89.240.16:8082"
+        nexusRegfluentd = "54.242.123.35:8082/fluentd"
+        nexusReg = "54.242.123.35:8082"
     }
     agent {
         node {
