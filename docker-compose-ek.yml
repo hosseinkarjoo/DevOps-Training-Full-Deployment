@@ -1,8 +1,8 @@
-version: '3'
+version: '3.9'
 services:
   elasticsearch:
     image: elasticsearch
-    container_name: elasticsearch
+    container_name: elasticsearch:8.1.2
     environment:
       - 'discovery.type=single-node'
     ports:
@@ -10,6 +10,6 @@ services:
 
   kibana:
     image: kibana
-    container_name: kibana
+    container_name: kibana:8.1.2
     ports:
-      - '5601:5601'
+      - '80:5601'
