@@ -38,7 +38,7 @@ pipeline {
                 script {
 //                    withCredentials([usernamePassword(credentialsId: 'nexusReg-Creds', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
                     sh'docker login -u "admin" -p "123@qwer" http://${nexusReg}/repository/docker-reg'
-                    sh 'docker push ${nexusRegfluentd}:${BIULD_NUMBER}'
+                    sh 'docker push ${nexusRegfluentd}:${BUILD_NUMBER}'
 //                    }
                     
                 }
