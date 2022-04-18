@@ -60,12 +60,13 @@ pipeline {
             }
         }
         stage ('test - groovy') {
-            steps {
-                script {
-                    Node_IP=InetAddress.localHost.hostAddress
-                    println InetAddress.localHost.hostAddress
+            agent {label 'logging'}
+                steps {
+                    script {
+                        Node_IP=InetAddress.localHost.hostAddress
+                        println InetAddress.localHost.hostAddress
+                    }
                 }
-            }
         }    
     }
 }
