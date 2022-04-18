@@ -69,7 +69,7 @@ pipeline {
                             script: "/usr/sbin/ifconfig | grep '10.0.1' | /usr/bin/awk '{print \$2}'" ,
                             returnStdout: true
                         )
-                        sh"echo ${LOGGING_PRV_IP} > TEST.txt"
+                        sh"echo $LOGGING_PRV_IP > TEST.txt"
                     }
                 }
         }    
