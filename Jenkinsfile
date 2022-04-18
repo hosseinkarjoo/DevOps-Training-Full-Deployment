@@ -50,11 +50,12 @@ pipeline {
                     try {
                         sh'docker-compose down'
                         sh'docker-compose rm --force'
+                        sh'docker stack rm ek'
                     }
                     catch (err) {
                         echo: 'EROR'
                     }    
-                    sh'docker stack deploy --compose-file docker-compose-ek.yml elastisearch-kibana'
+                    sh'docker stack deploy --compose-file docker-compose-ek.yml ek'
                 }
             }
         }
