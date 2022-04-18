@@ -29,7 +29,7 @@ pipeline {
         stage ('Build') {
             steps {
                 script {
-                    sh 'docker build --name:${nexusRegfluentd}:${BIULD_NUMBER} .'
+                    sh 'docker build -t ${nexusRegfluentd}:${BIULD_NUMBER} .'
                 }
             }
         }
