@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  elasticsearch:
+    image: elasticsearch
+    container_name: elasticsearch
+    environment:
+      - 'discovery.tye=single-node'
+    expose:
+      - 9200
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+
+  kibana:
+    image: kibana
+    container_name: kibana
+    ports:
+      - '80:5601'
