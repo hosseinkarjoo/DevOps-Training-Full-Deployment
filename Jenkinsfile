@@ -1,7 +1,7 @@
 pipeline {
     environment {
-        nexusRegfluentd = "54.89.240.16:8082/fluentd"
-        nexusReg = "54.89.240.16:8082"
+        nexusRegfluentd = "3.81.39.238:8082/fluentd"
+        nexusReg = "3.81.39.238:8082"
     }
     agent {
         node {
@@ -59,5 +59,19 @@ pipeline {
                 }
             }
         }
+        stage ('test - groovy') {
+            agent {label 'logging'}
+                steps {
+                    script {
+                        Node_IP=InetAddress.localHost.hostAddress
+                        println InetAddress.localHost.hostAddress
+                        LOGGING_PRV_IP = sh (
+                            script: "/usr/sbin/ifconfig | grep '10.0.1' | /usr/bin/awk '{print \$2}'" ,
+                            returnStdout: true
+                        )
+                        sh"echo $LOGGING_PRV_IP > TEST.txt"
+                    }
+                }
+        }    
     }
 }
