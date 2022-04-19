@@ -28,7 +28,7 @@ services:
 #      - 'ELASTICSEARCH_PASSWORD=123@qwer'
 
   fluentd:
-    image: fluentd
+    image: govtechsg/fluentd-elasticsearch
     container_name: fluentd
     volumes:
       - ./fluent.conf:/fluentd/etc/fluent.conf
