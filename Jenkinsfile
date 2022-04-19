@@ -59,19 +59,19 @@ pipeline {
                 }
             }
         }
-        stage ('test - groovy') {
-            agent {label 'logging'}
-                steps {
-                    script {
-                        Node_IP=InetAddress.localHost.hostAddress
-                        println InetAddress.localHost.hostAddress
-                        LOGGING_PRV_IP = sh (
-                            script: "/usr/sbin/ifconfig | grep '10.0.1' | /usr/bin/awk '{print \$2}'" ,
-                            returnStdout: true
-                        )
-                        sh"echo $LOGGING_PRV_IP > TEST.txt"
-                    }
-                }
-        }    
+//        stage ('test - groovy') {
+ //           agent {label 'logging'}
+  //              steps {
+   //                 script {
+    //                    Node_IP=InetAddress.localHost.hostAddress
+     //                   println InetAddress.localHost.hostAddress
+      //                  LOGGING_PRV_IP = sh (
+       //                     script: "/usr/sbin/ifconfig | grep '10.0.1' | /usr/bin/awk '{print \$2}'" ,
+        //                    returnStdout: true
+         //               )
+          //              sh"echo $LOGGING_PRV_IP > TEST.txt"
+           //         }
+          //      }
+     //   }    
     }
 }
