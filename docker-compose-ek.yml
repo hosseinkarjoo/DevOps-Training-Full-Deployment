@@ -31,7 +31,7 @@ services:
     image: fluentd
     container_name: fluentd
     volumes:
-      - ./fluentd/conf:/fluentd/etc/
+      - ./fluent.conf:/fluentd/etc/fluent.conf
     ports:
       - '24224:24224'
       - '24224:24224/udp'
