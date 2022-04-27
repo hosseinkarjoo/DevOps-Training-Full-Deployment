@@ -1,9 +1,9 @@
 pipeline {
     environment {
-        nexusRegapp = "3.87.171.0:8082/devops-training-app"
-        nexusRegdb = "3.87.171.0:8082/devops-training-db"
-        nexusRegapi = "3.87.171.0:8082/devops-training-api"
-        nexusReg = "3.87.171.0:8082"
+        nexusRegapp = "54.167.29.25:8082/devops-training-app"
+        nexusRegdb = "54.167.29.25:8082/devops-training-db"
+        nexusRegapi = "54.167.29.25:8082/devops-training-api"
+        nexusReg = "54.167.29.25:8082"
     }
     agent {
         node {
