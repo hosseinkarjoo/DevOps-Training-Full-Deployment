@@ -156,6 +156,8 @@ def test():
 
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
-    ip = get('http://ipv4.icanhazip.com').text
-    return "IP_Public:" + ip
+#    ip = get('http://ipv4.icanhazip.com').text
+#    return "IP_Public:" + ip
+    ip_addr = request.remote_addr
+    return '<h1> Your IP address is:' + ip_addr
 ####test client IP#############
