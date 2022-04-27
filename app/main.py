@@ -156,5 +156,7 @@ def test():
 
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
-    return jsonify({'ip': request.remote_addr}), 200
+    ip = get('https://api.ipify.org').text
+    print 'My public IP address is:', ip
+    return 'My public IP address is:', ip
 ####test client IP#############
