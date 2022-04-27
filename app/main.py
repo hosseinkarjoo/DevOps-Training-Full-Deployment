@@ -157,6 +157,5 @@ def test():
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
     ip = get('https://api.ipify.org').text
-    print 'My public IP address is:', ip
-    return 'My public IP address is:', ip
+    return "IP_Public:" + ip
 ####test client IP#############
