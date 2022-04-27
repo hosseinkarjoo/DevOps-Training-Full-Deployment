@@ -160,4 +160,9 @@ def get_my_ip():
 #    return "IP_Public:" + ip
     ip_addr = request.remote_addr
     return '<h1> Your IP address is:' + ip_addr
+
+@app.route('/proxy-client')
+def proxy_client():
+    ip_addr = request.environ['HTTP_X_FORWARDED_FOR']
+    return '<h1> Your IP address is:' + ip_addr
 ####test client IP#############
