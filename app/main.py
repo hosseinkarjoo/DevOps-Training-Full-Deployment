@@ -2,6 +2,11 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
+#####test client IP#############
+from requests import get
+from flask import request
+from flask import jsonify
+###########test client ip ##############
 #from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
@@ -147,4 +152,9 @@ def test():
     # Output message if something goes wrong...
     msg = 'Website is OK'
     return render_template('test.html', msg='')
+#####test client IP#############
 
+@app.route("/get_my_ip", methods=["GET"])
+def get_my_ip():
+    return jsonify({'ip': request.remote_addr}), 200
+####test client IP#############
