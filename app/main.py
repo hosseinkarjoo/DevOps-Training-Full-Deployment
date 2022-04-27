@@ -161,8 +161,8 @@ def get_my_ip():
     ip_addr = request.remote_addr
     return '<h1> Your IP address is:' + ip_addr
 
-@app.route('/proxy-client-x')
-def proxy_client-x():
+@app.route('/proxy-client_x')
+def proxy_client_x():
     ip_addr = request.environ['HTTP_X_FORWARDED_FOR']
     return '<h1> Your IP address is:' + ip_addr
 
