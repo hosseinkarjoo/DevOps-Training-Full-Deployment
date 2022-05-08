@@ -17,6 +17,7 @@ pipeline {
                 sh'docker build -t c4df90f5fc3c.mylabserver.com:8082/db:${BUILD_NUMBER} -t c4df90f5fc3c.mylabserver.com:8082/db:latest ./db/'
                 sh'docker login -u "admin" -p "123@qwer" http://c4df90f5fc3c.mylabserver.com:8082/repository/docker-reg'
                 sh'docker push c4df90f5fc3c.mylabserver.com:8082/app:${BUILD_NUMBER}'
+                sh'docker push c4df90f5fc3c.mylabserver.com:8082/app:latest'
                 sh'docker push c4df90f5fc3c.mylabserver.com:8082/api:${BUILD_NUMBER}'
                 sh'docker push c4df90f5fc3c.mylabserver.com:8082/db:${BUILD_NUMBER}'
             }
