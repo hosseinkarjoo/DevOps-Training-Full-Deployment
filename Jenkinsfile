@@ -24,7 +24,7 @@ pipeline {
         stage('run deployment'){
             steps{
                 sh'sudo kubectl create secret docker-registry regcred --docker-server="c4df90f5fc3c.mylabserver.com:8082" --docker-username="admin" --docker-password="123@qwer"'
-                sh'sudo kubectl run -f deployment-flask-app.yml'
+                sh'sudo kubectl apply -f deployment-flask-app.yml'
             }
         }
     }
