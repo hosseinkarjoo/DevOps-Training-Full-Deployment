@@ -12,9 +12,9 @@ pipeline {
         }
         stage('build and push'){
             steps{
-                sh'docker build -t c4df90f5fc3c.mylabserver.com:8082/app:${BUILD_NUMBER} ./app/'
-                sh'docker build -t c4df90f5fc3c.mylabserver.com:8082/api:${BUILD_NUMBER} ./api/'
-                sh'docker build -t c4df90f5fc3c.mylabserver.com:8082/db:${BUILD_NUMBER} ./db/'
+                sh'docker build -t c4df90f5fc3c.mylabserver.com:8082/app:${BUILD_NUMBER} -t c4df90f5fc3c.mylabserver.com:8082/app:latest ./app/'
+                sh'docker build -t c4df90f5fc3c.mylabserver.com:8082/api:${BUILD_NUMBER} -t c4df90f5fc3c.mylabserver.com:8082/api:latest ./api/'
+                sh'docker build -t c4df90f5fc3c.mylabserver.com:8082/db:${BUILD_NUMBER} -t c4df90f5fc3c.mylabserver.com:8082/db:latest ./db/'
                 sh'docker login -u "admin" -p "123@qwer" http://c4df90f5fc3c.mylabserver.com:8082/repository/docker-reg'
                 sh'docker push c4df90f5fc3c.mylabserver.com:8082/app:${BUILD_NUMBER}'
                 sh'docker push c4df90f5fc3c.mylabserver.com:8082/api:${BUILD_NUMBER}'
