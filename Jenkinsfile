@@ -22,10 +22,15 @@ pipeline {
                 sh'docker push c4df90f5fc3c.mylabserver.com:8082/db:${BUILD_NUMBER}'
             }
         }
+        stage('run ansible'){
+            steps{        
+                input("Ready to proceed?")
+            }
+        }
         stage('run deployment'){
             steps{
-                sh'sudo kubectl delete secret regcred'
-                sh'sudo kubectl create secret docker-registry regcred --docker-server="http://c4df90f5fc3c.mylabserver.com:8081" --docker-username="admin" --docker-password="123@qwer"'
+//                sh'sudo kubectl delete secret regcred'
+//                sh'sudo kubectl create secret docker-registry regcred --docker-server="http://c4df90f5fc3c.mylabserver.com:8081" --docker-username="admin" --docker-password="123@qwer"'
                 sh'sudo kubectl apply -f deployment-flask-app.yml'
             }
         }
