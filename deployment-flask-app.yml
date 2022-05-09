@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: c4df90f5fc3c.mylabserver.com:8082/app:latest
+        image: c4df90f5fc3c.mylabserver.com:8082/app
         ports:
         - containerPort: 5000
         imagePullPolicy: Never
