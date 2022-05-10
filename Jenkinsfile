@@ -22,11 +22,11 @@ pipeline {
                 sh'docker push ec2-184-73-127-107.compute-1.amazonaws.com/db:${BUILD_NUMBER}'
             }
         }
-        stage('run ansible'){
-            steps{        
-                input("Ready to proceed?")
-            }
-        }
+ //       stage('run ansible'){
+ //           steps{        
+ //               input("Ready to proceed?")
+ //           }
+ //       }
         stage('run deployment'){
             steps{
 //                sh'sudo kubectl delete secret regcred'
