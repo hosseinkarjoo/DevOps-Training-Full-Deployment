@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: ec2-54-86-230-148.compute-1.amazonaws.com:8443/app:latest
+        image: app:latest
         ports:
         - containerPort: 5000
+        imagePullPolicy: IfNotPresent
 
