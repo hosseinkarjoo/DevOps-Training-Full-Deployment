@@ -12,14 +12,14 @@ pipeline {
         }
         stage('build and push'){
             steps{
-                sh'docker build -t ec2-54-86-230-148.compute-1.amazonaws.com:8443/app:${BUILD_NUMBER} -t ec2-54-86-230-148.compute-1.amazonaws.com:8443/app:latest ./app/'
-                sh'docker build -t ec2-54-86-230-148.compute-1.amazonaws.com:8443/api:${BUILD_NUMBER} -t ec2-54-86-230-148.compute-1.amazonaws.com:8443/api:latest ./api/'
-                sh'docker build -t ec2-54-86-230-148.compute-1.amazonaws.com:8443/db:${BUILD_NUMBER} -t ec2-54-86-230-148.compute-1.amazonaws.com:8443/db:latest ./db/'
-                sh'docker login -u "admin" -p "123@qwer" https://ec2-54-86-230-148.compute-1.amazonaws.com:8443/repository/docker-reg'
-                sh'docker push ec2-54-86-230-148.compute-1.amazonaws.com:8443/app:${BUILD_NUMBER}'
-                sh'docker push ec2-54-86-230-148.compute-1.amazonaws.com:8443/app:latest'
-                sh'docker push ec2-54-86-230-148.compute-1.amazonaws.com:8443/api:${BUILD_NUMBER}'
-                sh'docker push ec2-54-86-230-148.compute-1.amazonaws.com:8443/db:${BUILD_NUMBER}'
+                sh'docker build -t ec2-34-238-163-56.compute-1.amazonaws.com/app:${BUILD_NUMBER} -t ec2-34-238-163-56.compute-1.amazonaws.com/app:latest ./app/'
+                sh'docker build -t ec2-34-238-163-56.compute-1.amazonaws.com/api:${BUILD_NUMBER} -t ec2-34-238-163-56.compute-1.amazonaws.com/api:latest ./api/'
+                sh'docker build -t ec2-34-238-163-56.compute-1.amazonaws.com/db:${BUILD_NUMBER} -t ec2-34-238-163-56.compute-1.amazonaws.com/db:latest ./db/'
+                sh'docker login -u "admin" -p "123@qwer" https://ec2-34-238-163-56.compute-1.amazonaws.com/repository/docker-reg'
+                sh'docker push ec2-34-238-163-56.compute-1.amazonaws.com/app:${BUILD_NUMBER}'
+                sh'docker push ec2-34-238-163-56.compute-1.amazonaws.com/app:latest'
+                sh'docker push ec2-34-238-163-56.compute-1.amazonaws.com/api:${BUILD_NUMBER}'
+                sh'docker push ec2-34-238-163-56.compute-1.amazonaws.com/db:${BUILD_NUMBER}'
             }
         }
  //       stage('run ansible'){
