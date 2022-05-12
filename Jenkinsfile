@@ -12,14 +12,14 @@ pipeline {
         }
         stage('build and push'){
             steps{
-                sh'docker build -t ec2-3-236-203-50.compute-1.amazonaws.com:8443/app:${BUILD_NUMBER} -t ec2-3-236-203-50.compute-1.amazonaws.com:8443/app:latest ./app/'
-                sh'docker build -t ec2-3-236-203-50.compute-1.amazonaws.com:8443/api:${BUILD_NUMBER} -t ec2-3-236-203-50.compute-1.amazonaws.com:8443/api:latest ./api/'
-                sh'docker build -t ec2-3-236-203-50.compute-1.amazonaws.com:8443/db:${BUILD_NUMBER} -t ec2-3-236-203-50.compute-1.amazonaws.com:8443/db:latest ./db/'
-                sh'docker login -u "admin" -p "123@qwer" https://ec2-3-236-203-50.compute-1.amazonaws.com:8443/repository/docker-reg'
-                sh'docker push ec2-3-236-203-50.compute-1.amazonaws.com:8443/app:${BUILD_NUMBER}'
-                sh'docker push ec2-3-236-203-50.compute-1.amazonaws.com:8443/app:latest'
-                sh'docker push ec2-3-236-203-50.compute-1.amazonaws.com:8443/api:${BUILD_NUMBER}'
-                sh'docker push ec2-3-236-203-50.compute-1.amazonaws.com:8443/db:${BUILD_NUMBER}'
+                sh'docker build -t c8n.io/hosseinkarjoooutlookcom/app:${BUILD_NUMBER} -t c8n.io/hosseinkarjoooutlookcom/app:latest ./app/'
+                sh'docker build -t c8n.io/hosseinkarjoooutlookcom/api:${BUILD_NUMBER} -t c8n.io/hosseinkarjoooutlookcom/api:latest ./api/'
+                sh'docker build -t c8n.io/hosseinkarjoooutlookcom/db:${BUILD_NUMBER} -t c8n.io/hosseinkarjoooutlookcom/db:latest ./db/'
+                sh'docker login -u "admin" -p "z8CIlygf59hu36b0QT4Rhg9kkyR7ysHz" https://c8n.io/hosseinkarjoooutlookcom/repository/docker-reg'
+                sh'docker push c8n.io/hosseinkarjoooutlookcom/app:${BUILD_NUMBER}'
+                sh'docker push c8n.io/hosseinkarjoooutlookcom/app:latest'
+                sh'docker push c8n.io/hosseinkarjoooutlookcom/api:${BUILD_NUMBER}'
+                sh'docker push c8n.io/hosseinkarjoooutlookcom/db:${BUILD_NUMBER}'
             }
         }
  //       stage('run ansible'){
