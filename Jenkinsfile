@@ -15,7 +15,7 @@ pipeline {
                 sh'docker build -t ec2-34-238-163-56.compute-1.amazonaws.com/app:${BUILD_NUMBER} -t ec2-34-238-163-56.compute-1.amazonaws.com/app:latest ./app/'
                 sh'docker build -t ec2-34-238-163-56.compute-1.amazonaws.com/api:${BUILD_NUMBER} -t ec2-34-238-163-56.compute-1.amazonaws.com/api:latest ./api/'
                 sh'docker build -t ec2-34-238-163-56.compute-1.amazonaws.com/db:${BUILD_NUMBER} -t ec2-34-238-163-56.compute-1.amazonaws.com/db:latest ./db/'
-                sh'docker login -u "admin" -p "123@qwer" https://ec2-34-238-163-56.compute-1.amazonaws.com/repository/docker-reg'
+                sh'docker login -u "admin" -p "123@qwer" https://ec2-34-238-163-56.compute-1.amazonaws.com:8443/repository/docker-reg'
                 sh'docker push ec2-34-238-163-56.compute-1.amazonaws.com/app:${BUILD_NUMBER}'
                 sh'docker push ec2-34-238-163-56.compute-1.amazonaws.com/app:latest'
                 sh'docker push ec2-34-238-163-56.compute-1.amazonaws.com/api:${BUILD_NUMBER}'
