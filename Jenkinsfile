@@ -12,10 +12,10 @@ pipeline {
         }
         stage('build and push'){
             steps{
-                sh'docker build -t ec2-52-4-250-168.compute-1.amazonaws.com:8443/app:${BUILD_NUMBER} -t ec2-52-4-250-168.compute-1.amazonaws.com:8443/app:latest ./app/'
-                sh'docker build -t ec2-52-4-250-168.compute-1.amazonaws.com:8443/api:${BUILD_NUMBER} -t ec2-52-4-250-168.compute-1.amazonaws.com:8443/api:latest ./api/'
+                sh'docker build -t 988317005723.dkr.ecr.us-east-1.amazonaws.com/app:${BUILD_NUMBER} -t 988317005723.dkr.ecr.us-east-1.amazonaws.com/app:latest ./app/'
+                sh'docker build -t 988317005723.dkr.ecr.us-east-1.amazonaws.com/api:${BUILD_NUMBER} -t 988317005723.dkr.ecr.us-east-1.amazonaws.com/api:latest ./api/'
                 sh'docker build -t ec2-52-4-250-168.compute-1.amazonaws.com:8443/db:${BUILD_NUMBER} -t ec2-52-4-250-168.compute-1.amazonaws.com:8443/db:latest ./db/'
-                sh'docker login -u "admin" -p "123@qwer" https://ec2-52-4-250-168.compute-1.amazonaws.com:8443/repository/docker-reg'
+//                sh'docker login -u "admin" -p "123@qwer" https://ec2-52-4-250-168.compute-1.amazonaws.com:8443/repository/docker-reg'
                 sh'docker push ec2-52-4-250-168.compute-1.amazonaws.com:8443/app:${BUILD_NUMBER}'
                 sh'docker push ec2-52-4-250-168.compute-1.amazonaws.com:8443/app:latest'
                 sh'docker push ec2-52-4-250-168.compute-1.amazonaws.com:8443/api:${BUILD_NUMBER}'
