@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: 988317005723.dkr.ecr.us-east-1.amazonaws.com/app:latest
+        image: 109736915890.dkr.ecr.us-east-1.amazonaws.com/app:latest
         ports:
         - containerPort: 5000
         imagePullPolicy: IfNotPresent
-      imagePullSecrets:
-      - name: regcred
+#      imagePullSecrets:
+#      - name: regcred
