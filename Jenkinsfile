@@ -14,7 +14,7 @@ pipeline {
             steps{
                 sh'docker build -t 109736915890.dkr.ecr.us-east-1.amazonaws.com/app:${BUILD_NUMBER} -t 109736915890.dkr.ecr.us-east-1.amazonaws.com/app:latest ./app/'
                 sh'docker build -t 109736915890.dkr.ecr.us-east-1.amazonaws.com/api:${BUILD_NUMBER} -t 109736915890.dkr.ecr.us-east-1.amazonaws.com/api:latest ./api/'
-                sh'docker build -t 109736915890.dkr.ecr.us-east-1.amazonaws.com/db:${BUILD_NUMBER} -t e109736915890.dkr.ecr.us-east-1.amazonaws.com/db:latest ./db/'
+                sh'docker build -t 109736915890.dkr.ecr.us-east-1.amazonaws.com/db:${BUILD_NUMBER} -t 109736915890.dkr.ecr.us-east-1.amazonaws.com/db:latest ./db/'
 //                sh'docker login -u "admin" -p "123@qwer" https://ec2-52-4-250-168.compute-1.amazonaws.com:8443/repository/docker-reg'
                 sh'sudo docker push 109736915890.dkr.ecr.us-east-1.amazonaws.com/app:${BUILD_NUMBER}'
                 sh'sudo docker push 109736915890.dkr.ecr.us-east-1.amazonaws.com/app:latest'
