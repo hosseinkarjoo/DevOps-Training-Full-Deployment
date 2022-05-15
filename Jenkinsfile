@@ -38,6 +38,8 @@ pipeline {
         stage('run deployment'){
             steps{
                 sh'sudo kubectl apply -f deployment-app.yml '
+                sh'sudo kubectl apply -f deployment-api.yml '
+                sh'sudo kubectl apply -f deployment-db.yml '
             }
         }
     }
