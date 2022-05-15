@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-api
+  labels:
+    app: flask-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flask-api
+  template:
+    metadata:
+      labels:
+        app: flask-api
+    spec:
+      containers:
+      - name: api
+        image: 582826443728.dkr.ecr.us-east-1.amazonaws.com/api:latest
+        ports:5001
+        - containerPort: 
+        imagePullPolicy: IfNotPresent
