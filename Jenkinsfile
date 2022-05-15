@@ -1,8 +1,6 @@
 pipeline {
     environment {
-        Reg-app = 'REGAPP'
-        Reg-api = 'REGAPI'
-        Reg-db = 'REGDB'
+        reg-addr = '582826443728.dkr.ecr.us-east-1.amazonaws.com'
     agent {
         node {
             label 'prod'
@@ -11,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Git Project') {
             steps {
-                git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'project-compose', credentialsId: 'github_creds'
+                git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'k8s-app', credentialsId: 'github_creds'
             }
         }
         stage('build'){
