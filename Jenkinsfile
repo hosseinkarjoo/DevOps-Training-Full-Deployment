@@ -1,6 +1,7 @@
 pipeline {
     environment {
         reg-addr = '582826443728.dkr.ecr.us-east-1.amazonaws.com'
+    }
     agent {
         node {
             label 'prod'
