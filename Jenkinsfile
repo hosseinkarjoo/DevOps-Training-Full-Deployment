@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        reg-addr = '582826443728.dkr.ecr.us-east-1.amazonaws.com'
+        regAddr = '582826443728.dkr.ecr.us-east-1.amazonaws.com'
     }
     agent {
         node {
@@ -15,19 +15,19 @@ pipeline {
         }
         stage('build'){
             steps{
-                sh'docker build -t ${reg-addr}/app:${BUILD_NUMBER} -t ${reg-addr}/app:latest ./app/'
-                sh'docker build -t ${reg-addr}/api:${BUILD_NUMBER} -t ${reg-addr}/api:latest ./api/'
-                sh'docker build -t ${reg-addr}/db:${BUILD_NUMBER} -t ${reg-addr}/db:latest ./db/'
+                sh'docker build -t ${regAddr}/app:${BUILD_NUMBER} -t ${regAddr}/app:latest ./app/'
+                sh'docker build -t ${regAddr}/api:${BUILD_NUMBER} -t ${regAddr}/api:latest ./api/'
+                sh'docker build -t ${regAddr}/db:${BUILD_NUMBER} -t ${regAddr}/db:latest ./db/'
             }
         }
         stage('PUSH'){
            steps{
-                sh'sudo docker push ${reg-addr}/app:${BUILD_NUMBER}'
-                sh'sudo docker push ${reg-addr}/app:latest'
-                sh'sudo docker push ${reg-addr}/api:${BUILD_NUMBER}'
-                sh'sudo docker push ${reg-addr}/api:latest'
-                sh'sudo docker push ${reg-addr}/db:${BUILD_NUMBER}'
-                sh'sudo docker push ${reg-addr}/db:latest'
+                sh'sudo docker push ${regAddr}/app:${BUILD_NUMBER}'
+                sh'sudo docker push ${regAddr}/app:latest'
+                sh'sudo docker push ${regAddr}/api:${BUILD_NUMBER}'
+                sh'sudo docker push ${regAddr}/api:latest'
+                sh'sudo docker push ${regAddr}/db:${BUILD_NUMBER}'
+                sh'sudo docker push ${regAddr}/db:latest'
             }
         }
  //       stage('run ansible'){
