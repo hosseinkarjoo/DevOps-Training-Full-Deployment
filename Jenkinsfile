@@ -30,11 +30,13 @@ pipeline {
                 sh'sudo docker push ${regAddr}/db:latest'
             }
         }
- //       stage('run ansible'){
- //           steps{        
- //               input("Ready to proceed?")
- //           }
- //       }
+        stage('confi deployments'){
+            steps{        
+                script {
+                    sh'sed -i "s/IAMGE-ADDR/${redAddr}/app:${BUILD_NUMBER}/" ./deployment-app.yml'
+                }
+            }
+        }
         stage('run deployment'){
             steps{
                 sh'sudo kubectl apply -f deployment-app.yml '
