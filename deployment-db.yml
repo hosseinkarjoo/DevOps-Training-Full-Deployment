@@ -37,13 +37,7 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /var/lib/mysql
-  volumeClaimTemplates:
-    - metadata:
-        name: data
-      spec:
-        storageClassName: standard
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 1Gi
+  volumes:
+  - name: data
+    hostPath: 
+        path: /mnt/pv1
