@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: db
-        image: 412825246027.dkr.ecr.us-east-1.amazonaws.com/db:latest
+        image: IMAGE-ADDR/db:IMAGE-NUMBER
 #        ports:
 #        - containerPort: 5000
         imagePullPolicy: Always
