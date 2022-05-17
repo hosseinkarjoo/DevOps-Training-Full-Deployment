@@ -28,7 +28,6 @@ kind: Service
 metadata:
   name: svc-flask-db
 spec:
-  type: ClusterIP
   ClusterIP: None
   selector:
     app: flask-db
