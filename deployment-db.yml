@@ -37,7 +37,7 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /var/lib/mysql
-  volumes:
-  - name: data
-    hostPath: 
-        path: /mnt/pv1
+      volumes:
+      - name: data
+        hostPath: 
+            path: /mnt/pv1
