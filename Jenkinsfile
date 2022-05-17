@@ -33,7 +33,7 @@ pipeline {
         stage('confi deployments'){
             steps{        
                 script {
-                    sh """sed -i "s|IMAGE-ADDR/${regAddr}/app:${BUILD_NUMBER}|g" ./deployment-app.yml"""
+                    sh """sed -i "s|IMAGE-ADDR/${regAddr}\/app:${BUILD_NUMBER}|g" ./deployment-app.yml"""
                 }
             }
         }
