@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: db
-        image: ${regAddr}/db:latest
+        image: 412825246027.dkr.ecr.us-east-1.amazonaws.com/db:latest
 #        ports:
 #        - containerPort: 5000
         imagePullPolicy: IfNotPresent
