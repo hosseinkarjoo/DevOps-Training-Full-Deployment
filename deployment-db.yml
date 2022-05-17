@@ -28,6 +28,7 @@ kind: Service
 metadata:
   name: svc-flask-db
 spec:
+  clusterIP: None
   selector:
     app: flask-db
   ports:
