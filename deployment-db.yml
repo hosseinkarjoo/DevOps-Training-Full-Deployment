@@ -33,5 +33,6 @@ spec:
     app: flask-db
   ports:
     - port: 3306
+      targetPort: 3306
 
     
