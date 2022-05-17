@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: ${regApp}:${BUILD_NUMBER}
+        image: ${regAddr}/app:${BUILD_NUMBER}
         ports:
         - containerPort: 5000
         imagePullPolicy: Always
