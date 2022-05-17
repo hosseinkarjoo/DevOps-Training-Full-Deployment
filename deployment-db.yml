@@ -62,14 +62,12 @@ metadata:
   name: efs-pv
 spec:
   capacity:
-    storage: 10Gi
+    storage: 1Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   storageClassName: "" 
-  claimRef:
-    name: efs-pvc
   csi:
     driver: efs.csi.aws.com
     volumeHandle: fs-05fed4f448b82a8a1
