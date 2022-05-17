@@ -29,9 +29,10 @@ metadata:
   name: svc-flask-db
 spec:
   type: ClusterIP
+  ClusterIP: None
   selector:
     app: flask-db
   ports:
     - port: 3306
-      targetPort: 3306
+
     
