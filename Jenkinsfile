@@ -35,6 +35,10 @@ pipeline {
                 script {
                     sh """sed -i "s|IMAGE-ADDR|${regAddr}|" ./deployment-app.yml"""
                     sh """sed -i "s|IMAGE-NUMBER|${BUILD_NUMBER}|" ./deployment-app.yml"""
+                    sh """sed -i "s|IMAGE-ADDR|${regAddr}|" ./deployment-api.yml"""
+                    sh """sed -i "s|IMAGE-NUMBER|${BUILD_NUMBER}|" ./deployment-api.yml"""
+                    sh """sed -i "s|IMAGE-ADDR|${regAddr}|" ./deployment-db.yml"""
+                    sh """sed -i "s|IMAGE-NUMBER|${BUILD_NUMBER}|" ./deployment-db.yml"""
                 }
             }
         }
