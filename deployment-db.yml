@@ -35,7 +35,7 @@ spec:
               protocol: TCP
               containerPort: 3306
           volumeMounts:
-            - name: data
+            - name: efs-volume
               mountPath: /var/lib/mysql
       volumes:
       - name: efs-volume
