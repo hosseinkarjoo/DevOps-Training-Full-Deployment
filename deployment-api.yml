@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: 582826443728.dkr.ecr.us-east-1.amazonaws.com/api:latest
+        image: ${regAddr}/api:latest
         ports:
         - containerPort: 5001
         imagePullPolicy: IfNotPresent
