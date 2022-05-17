@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: IMAGE-ADDR/api:latest
+        image: IMAGE-ADDR/api:IMAGE-NUMBER
         ports:
         - containerPort: 5001
         imagePullPolicy: Always
