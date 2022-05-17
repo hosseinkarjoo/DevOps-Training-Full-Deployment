@@ -30,9 +30,8 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    matchLabels:
-      app: flask-db
-    ports:
-      - port: 3306
-        targetport: 3306
+    app: flask-db
+  ports:
+    - port: 3306
+      targetport: 3306
     
