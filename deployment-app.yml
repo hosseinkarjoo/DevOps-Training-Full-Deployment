@@ -19,7 +19,7 @@ spec:
         image: 412825246027.dkr.ecr.us-east-1.amazonaws.com/app:latest
         ports:
         - containerPort: 5000
-        imagePullPolicy: Alwaya
+        imagePullPolicy: Always
 #      imagePullSecrets:
 #      - name: regcred
 ---
