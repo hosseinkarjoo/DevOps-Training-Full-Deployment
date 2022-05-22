@@ -22,7 +22,7 @@ app.secret_key = 'your secret key'
 
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'svc-flask-db'
-app.config['MYSQL_USER'] = 'sql'
+app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '123qwerR'
 app.config['MYSQL_DB'] = 'pythonlogin'
 
