@@ -16,7 +16,7 @@ kind: StatefulSet
 metadata:
   name: flask-db
 spec:
-  replicas: 3
+  replicas: 1
   serviceName: flask-db
   selector:
     matchLabels:
