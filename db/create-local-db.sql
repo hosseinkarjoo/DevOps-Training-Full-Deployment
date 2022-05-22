@@ -11,14 +11,19 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 
 #INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', 'test', 'test@test.com');
 DROP USER 'sql';
+FLUSH PRIVILEGES;
 DROP USER 'sql'@'localhost';
+FLUSH PRIVILEGES;
 CREATE USER 'sql'@'localhost' IDENTIFIED BY '123qwerR';
+FLUSH PRIVILEGES;
 
 CREATE USER 'sql' IDENTIFIED BY '123qwerR';
+FLUSH PRIVILEGES;
 
 GRANT ALL PRIVILEGES ON *.* TO 'sql'; 
+FLUSH PRIVILEGES;
 GRANT ALL PRIVILEGES ON *.* TO 'sql'@'localhost'; 
-
+FLUSH PRIVILEGES;
 CREATE USER 'exporter'@'localhost' IDENTIFIED BY '123qwerR';
 GRANT PROCESS, REPLICATION CLIENT ON *.* TO 'exporter'@'localhost';
 GRANT SELECT ON performance_schema.* TO 'exporter'@'localhost';
