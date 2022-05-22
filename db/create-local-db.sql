@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 
 #INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', 'test', 'test@test.com');
 DROP USER 'sql';
+DROP USER 'sql'@'localhost';
 CREATE USER 'sql'@'localhost' IDENTIFIED BY '123qwerR';
 
 CREATE USER 'sql' IDENTIFIED BY '123qwerR';
