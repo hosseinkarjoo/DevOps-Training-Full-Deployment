@@ -40,17 +40,17 @@ spec:
       volumes:
       - name: efs-volume
         persistentVolumeClaim:
-          claimName: efs-pvc
+          claimName: efs-pvc2
           
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: efs-pvc
+  name: efs-pvc2
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: "" 
+  storageClassName: "efs-sc" 
   resources:
     requests:
       storage: 1Gi
@@ -59,7 +59,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: efs-pv
+  name: efs-pv2
 spec:
   capacity:
     storage: 1Gi
@@ -67,23 +67,23 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: "" 
+  storageClassName: "efs-sc" 
   csi:
     driver: efs.csi.aws.com
     volumeHandle: fs-07c9b9930962afc76
 
----
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: efs-sc
-provisioner: efs.csi.aws.com
+#---
+#kind: StorageClass
+#apiVersion: storage.k8s.io/v1
+#metadata:
+#  name: efs-sc
+#provisioner: efs.csi.aws.com
 
----
-apiVersion: storage.k8s.io/v1beta1
-kind: CSIDriver
-metadata:
-  name: efs.csi.aws.com
-spec:
-  attachRequired: false
+#---
+#apiVersion: storage.k8s.io/v1beta1
+#kind: CSIDriver
+#metadata:
+#  name: efs.csi.aws.com
+#spec:
+#  attachRequired: false
 
