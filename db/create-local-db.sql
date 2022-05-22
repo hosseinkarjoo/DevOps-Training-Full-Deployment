@@ -27,3 +27,6 @@ FLUSH PRIVILEGES;
 CREATE USER 'exporter'@'localhost' IDENTIFIED BY '123qwerR';
 GRANT PROCESS, REPLICATION CLIENT ON *.* TO 'exporter'@'localhost';
 GRANT SELECT ON performance_schema.* TO 'exporter'@'localhost';
+
+SHOW GRANTS FOR 'sql';
+SHOW GRANTS FOR 'sql'@'localhost';
