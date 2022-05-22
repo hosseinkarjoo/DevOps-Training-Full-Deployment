@@ -10,13 +10,13 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 #INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', 'test', 'test@test.com');
-DROP USER sql;
-CREATE USER 'sql'@localhost IDENTIFIED BY '123qwerR';
+DROP USER 'sql';
+CREATE USER 'sql'@'localhost' IDENTIFIED BY '123qwerR';
 
 CREATE USER 'sql' IDENTIFIED BY '123qwerR';
 
 GRANT ALL PRIVILEGES ON *.* TO 'sql'; 
-GRANT ALL PRIVILEGES ON *.* TO 'sql'@localhost; 
+GRANT ALL PRIVILEGES ON *.* TO 'sql'@'localhost'; 
 
 CREATE USER 'exporter'@'localhost' IDENTIFIED BY '123qwerR';
 GRANT PROCESS, REPLICATION CLIENT ON *.* TO 'exporter'@'localhost';
