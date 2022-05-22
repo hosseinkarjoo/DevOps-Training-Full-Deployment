@@ -11,10 +11,8 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 
 #INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', 'test', 'test@test.com');
 
-CREATE USER 'sql'@'localhost' IDENTIFIED BY '123@qwer';
-GRANT ALL PRIVILEGES ON *.* TO 'sql'@'localhost';
 CREATE USER 'sql'@'%' IDENTIFIED BY '123@qwer';
-GRANT ALL PRIVILEGES ON *.* TO 'sql'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'sql'@'% 'IDENTIFIED BY 'password'; 
 
 CREATE USER 'exporter'@'localhost' IDENTIFIED BY '123qwerR';
 GRANT PROCESS, REPLICATION CLIENT ON *.* TO 'exporter'@'localhost';
