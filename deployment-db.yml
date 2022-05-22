@@ -40,13 +40,13 @@ spec:
       volumes:
       - name: efs-volume
         persistentVolumeClaim:
-          claimName: efs-pvc2
+          claimName: efs-pvc
           
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: efs-pvc2
+  name: efs-pvc
 spec:
   accessModes:
     - ReadWriteMany
@@ -59,7 +59,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: efs-pv2
+  name: efs-pv
 spec:
   capacity:
     storage: 1Gi
