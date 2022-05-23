@@ -74,4 +74,6 @@ spec:
           path: ./grafana-dash.json
       - name: mysql-dash
         hostPath:
-          path: ./mysql-dash.json         
+          path: ./mysql-dash.json    
+          
+
