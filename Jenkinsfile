@@ -30,7 +30,7 @@ pipeline {
  //                   catch (err) {
  //                       echo: 'EROR'
  //                   }
-                    sh'sudo kubectl apply -f deployment-node-app-monitor.yml.yml'
+                    sh'sudo kubectl apply -f deployment-node-app-monitor.yml'
 //                    sh'sudo kubectl apply -f deployment-node-monitor.yml'
                 }
             }
