@@ -8,39 +8,39 @@ spec:
   selector:
     matchLabels:
       app: app-monitor
-   template:
-     metadata:
-       labels:
-         app: app-monitor
-     spec:
-       containers:
-       - name: monitoring-cadvisor
-         image: google/cadvisor
-         ports:
-           - containerPort: '8080'
-         volumeMounts:
-           - name: rootfs
-             mountPath: /rootfs
-           - name: run
-             montPath: /var/run
-           - name: sys
-             mountPath: /sys
-           - name: docker
-             mountPath: /var/lib/docker
+  template:
+    metadata:
+      labels:
+        app: app-monitor
+    spec:
+      containers:
+      - name: monitoring-cadvisor
+        image: google/cadvisor
+        ports:
+          - containerPort: '8080'
+        volumeMounts:
+        - name: rootfs
+            mountPath: /rootfs
+        - name: run
+            montPath: /var/run
+        - name: sys
+            mountPath: /sys
+        - name: docker
+            mountPath: /var/lib/docker
              
-       volumes:
-       - name: rootfs
-         hostPath:
-           path: /
-       - name: run
-         hostPath: 
-           path: /var/run
-       - name: sys
-         hostPath:
-           path: /sys
-       - name: docker
-         hostPath:
-           path: /var/lib/docker
+      volumes:
+      - name: rootfs
+        hostPath:
+          path: /
+      - name: run
+        hostPath: 
+          path: /var/run
+      - name: sys
+        hostPath:
+          path: /sys
+      - name: docker
+        hostPath:
+          path: /var/lib/docker
            
 ---
 apiVersion: apps/v1
