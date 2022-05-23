@@ -9,22 +9,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-#INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', 'test', 'test@test.com');
-DROP USER 'sql';
-FLUSH PRIVILEGES;
-DROP USER 'sql'@'localhost';
-FLUSH PRIVILEGES;
-CREATE USER 'sql'@'localhost' IDENTIFIED BY '123qwerR';
-FLUSH PRIVILEGES;
-
-CREATE USER 'sql' IDENTIFIED BY '123qwerR';
-
-GRANT ALL PRIVILEGES ON *.* TO 'sql'; 
-GRANT ALL PRIVILEGES ON *.* TO 'sql'@'localhost'; 
 
 CREATE USER 'exporter'@'localhost' IDENTIFIED BY '123qwerR';
 GRANT PROCESS, REPLICATION CLIENT ON *.* TO 'exporter'@'localhost';
 GRANT SELECT ON performance_schema.* TO 'exporter'@'localhost';
-
-SHOW GRANTS FOR 'sql';
-SHOW GRANTS FOR 'sql'@'localhost';
