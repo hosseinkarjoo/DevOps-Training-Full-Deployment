@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitor-prometheus
+  labels:
+    app: monitor-prometheus
+spec:
+  selector:
+    matchLabels:
+      app: monitor-prometheus
+  template:
+    metadata:
+      labels:
+        app: monitor-prometheus
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus
+        ports:
+          - containerPort: 9090
+        volumeMounts:
+        - name: prometheus
+          mountPath: /etc/prometheus/prometheus.yml
+        - name: alert
+          mountPath: /etc/prometheus/alert.rules
+             
+      volumes:
+      - name: prometheus
+        hostPath:
+          path: ./prometheus.yml
+      - name: alert
+        hostPath: 
+          path: /./alert.rules
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitor-grafana
+  labels:
+    app: monitor-grafana
+spec:
+  selector:
+    matchLabels:
+      app: monitor-grafana
+  template:
+    metadata:
+      labels:
+        app: monitor-grafana
+    spec:
+      containers:
+      - name: grafana
+        image: grafana/grafana
+        ports:
+          - containerPort: 3000
+        volumeMounts:
+        - name: datasource
+          mountPath: /etc/grafana/provisioning/datasources/datasource.yml
+        - name: dashboard
+          mountPath: /etc/grafana/provisioning/dashboards/dashboard.yml
+        - name: grafana-dash
+          mountPath: /etc/grafana/provisioning/dashboards/grafana-dash.json
+        - name: mysql-dash
+          mountPath: /etc/grafana/provisioning/dashboards/mysql-dash.json             
+      volumes:
+      - name: datasource
+        hostPath:
+          path: ./datasource.yml
+      - name: dashboard
+        hostPath:
+          path: ./dashboard.yml
+      - name: grafana-dash
+        hostPath:
+          path: ./grafana-dash.json
+      - name: mysql-dash
+        hostPath:
+          path: ./mysql-dash.json         
