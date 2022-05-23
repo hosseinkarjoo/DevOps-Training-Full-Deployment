@@ -17,9 +17,9 @@ pipeline {
 //            steps {
 //                script {
 //                    sh'/bin/bash ./prometheus-monitor-config.sh'
-                }
-            }
-        }
+//                }
+//            }
+//        }
         stage ('Deploy to Minoting-Stack') {
             steps {
                 script {
