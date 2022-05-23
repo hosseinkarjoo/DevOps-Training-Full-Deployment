@@ -15,7 +15,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-db
-  app: flask-db
+  lables:
+    app: flask-db
 spec:
   replicas: 1
 #  serviceName: flask-db
