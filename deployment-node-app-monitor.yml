@@ -17,12 +17,12 @@ spec:
       - name: monitoring-cadvisor
         image: google/cadvisor
         ports:
-          - containerPort: '8080'
+          - containerPort: 8080
         volumeMounts:
         - name: rootfs
           mountPath: /rootfs
         - name: run
-          montPath: /var/run
+          mountPath: /var/run
         - name: sys
           mountPath: /sys
         - name: docker
@@ -62,7 +62,7 @@ spec:
        - name: monitoring-nodeexporter
          image: prom/node-exporter
          ports:
-           - containerPort: '9100'
+           - containerPort: 9100
          volumeMounts:
          - name: host
            mountPath: /host
