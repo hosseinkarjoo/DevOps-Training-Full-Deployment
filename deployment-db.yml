@@ -41,8 +41,8 @@ spec:
               mountPath: /var/lib/mysql
       volumes:
       - name: hostfile
-      hostPath:
-        path: /tmp
+        hostPath:
+          path: /tmp
 
 #        persistentVolumeClaim:
 #          claimName: efs-pvc
