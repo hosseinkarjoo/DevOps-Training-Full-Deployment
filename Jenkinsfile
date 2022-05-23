@@ -34,6 +34,7 @@ pipeline {
                     sh'sudo kubectl apply -f cm-prometheus.yml'                    
                     sh'sudo kubectl apply -f deployment-prometheus.yml'
                     sh'sudo kubectl apply -f svc-prometheus.yml'
+                    sh'sudo kubectl apply -f svc-nodeexporter.yml'
 //                    sh'sudo kubectl apply -f rbac-prometheus.yml'
                 }
             }
