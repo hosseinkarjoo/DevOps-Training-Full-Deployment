@@ -30,11 +30,11 @@ pipeline {
  //                   catch (err) {
  //                       echo: 'EROR'
  //                   }
-                    sh'sudo kubectl apply -f deployment-node-app-monitor.yml'
+ //                   sh'sudo kubectl apply -f deployment-node-app-monitor.yml'
                     sh'sudo kubectl apply -f cm-prometheus.yml'                    
                     sh'sudo kubectl apply -f deployment-prometheus.yml'
                     sh'sudo kubectl apply -f svc-prometheus.yml'
-                    sh'sudo kubectl apply -f rbac-prometheus.yml'
+//                    sh'sudo kubectl apply -f rbac-prometheus.yml'
                 }
             }
         }                      
