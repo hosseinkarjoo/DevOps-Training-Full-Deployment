@@ -5,7 +5,6 @@ metadata:
     app.kubernetes.io/component: exporter
     app.kubernetes.io/name: node-exporter
   name: node-exporter
-  namespace: monitoring
 spec:
   selector:
     matchLabels:
