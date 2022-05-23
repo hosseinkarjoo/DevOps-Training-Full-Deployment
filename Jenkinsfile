@@ -13,10 +13,10 @@ pipeline {
                 git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'k8s-monitor', credentialsId: 'github_creds'
             }
         }
-        stage('gather info - Buld prometheus config file') {
-            steps {
-                script {
-                    sh'/bin/bash ./prometheus-monitor-config.sh'
+//        stage('gather info - Buld prometheus config file') {
+//            steps {
+//                script {
+//                    sh'/bin/bash ./prometheus-monitor-config.sh'
                 }
             }
         }
@@ -30,8 +30,9 @@ pipeline {
  //                   catch (err) {
  //                       echo: 'EROR'
  //                   }
-                    sh'sudo kubectl apply -f deployment-node-app-monitor.yml'
-//                    sh'sudo kubectl apply -f deployment-node-monitor.yml'
+                    sh'sudo kubectl apply -f deployment-prometheus.yml'
+                    sh'sudo kubectl apply -f svc-prometheus.yml'
+                    sh'sudo kubectl apply -f cm-prometheus.yml'
                 }
             }
         }                      
