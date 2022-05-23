@@ -20,13 +20,13 @@ spec:
           - containerPort: '8080'
         volumeMounts:
         - name: rootfs
-            mountPath: /rootfs
+          mountPath: /rootfs
         - name: run
-            montPath: /var/run
+          montPath: /var/run
         - name: sys
-            mountPath: /sys
+          mountPath: /sys
         - name: docker
-            mountPath: /var/lib/docker
+          mountPath: /var/lib/docker
              
       volumes:
       - name: rootfs
