@@ -78,7 +78,7 @@ kind: Service
 metadata:
   name: cadvisor
 spec:
-  ClusterIP: None
+  clusterIP: None
   selector:
     app: app-monitor
   ports:
@@ -92,7 +92,7 @@ kind: Service
 metadata:
   name: nodexporter
 spec:
-  ClusterIP: None
+  clusterIP: None
   selector:
     app: node-monitor
   ports:
