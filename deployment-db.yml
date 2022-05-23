@@ -17,7 +17,7 @@ metadata:
   name: flask-db
 spec:
   replicas: 1
-  serviceName: flask-db
+#  serviceName: flask-db
   selector:
     matchLabels:
       app: flask-db
