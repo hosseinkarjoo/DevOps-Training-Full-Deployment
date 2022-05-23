@@ -11,7 +11,6 @@ spec:
       app.kubernetes.io/component: exporter
       app.kubernetes.io/name: node-exporter
   ports:
-    protocol: TCP
-    port: 9100
-    targetPort: 9100
-    nodePort: 32010
+    - port: 9100
+      targetPort: 9100
+      nodePort: 32010
