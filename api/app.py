@@ -9,10 +9,10 @@ app = Flask(__name__)
 mysql = MySQL()
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_USER'] = 'sql'
 app.config['MYSQL_DATABASE_PASSWORD'] = '123qwerR'
 app.config['MYSQL_DATABASE_DB'] = 'pythonlogin'
-app.config['MYSQL_DATABASE_HOST'] = 'flask_app_devops-training-db'
+app.config['MYSQL_DATABASE_HOST'] = 'svc-flask-db'
 
 mysql.init_app(app)
 
