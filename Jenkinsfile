@@ -30,6 +30,7 @@ pipeline {
  //                   catch (err) {
  //                       echo: 'EROR'
  //                   }
+                    sh'sudo kubectl apply -f rbac-prometheus.yml'
                     sh'sudo kubectl apply -f ds-nodeexporter.yml'
                     sh'sudo kubectl apply -f cm-prometheus.yml'                    
                     sh'sudo kubectl apply -f deployment-prometheus.yml'
