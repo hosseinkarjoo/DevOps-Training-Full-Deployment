@@ -1,35 +1,16 @@
 pipeline {
-//    environment {
-//    }
+    environment {
+        regAddr = '088190408337.dkr.ecr.us-east-1.amazonaws.com'
+    }
     agent {
         node {
-            label 'monitoring'
+            label 'prod'
         }
     }
     stages {
         stage('Clone Git Project') {
             steps {
-                sh'rm -rf ./*'
-                git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'monitoring', credentialsId: 'github_creds'
-            }
-        }
-        stage ('image cleanup') {
-            steps {
-                script {
-                    try {
-                        sh'docker image rmi $(docker image ls -qa) --force'
-                    }
-                    catch (err) {
-                        echo: 'ERRORR'
-                    }
-                }
-            }
-        }
-        stage('remove the stack') {
-            steps {
-                script {
-                    sh'docker stack rm monitoring'
-                }
+                git url: 'https://github.com/hosseinkarjoo/DevOps-Training-Full-Deployment.git', branch: 'k8s-monitor', credentialsId: 'github_creds'
             }
         }
         stage('gather info - Buld prometheus config file') {
@@ -49,25 +30,11 @@ pipeline {
  //                   catch (err) {
  //                       echo: 'EROR'
  //                   }
-                    sh'docker stack deploy --compose-file docker-compose-monitoring-stack.yml monitoring'
+                    sh'sudo kubectl apply -f deployment-monitoring.yml'
+                    sh'sudo kubectl apply -f deployment-node-monitor.yml'
                 }
             }
-        }
-        stage ('Deploy to Jenkins-Slave-Node') {
-            agent { label 'prod-stage' }
-                steps {
-                    script {
-//                        try {
- //                           sh'docker-compose down'
-  //                          sh'docker-compose rm --force'
- //                       }
-//                        catch (err) {
-//                            echo: 'EROR'
-//                        }    
-                        sh'docker stack deploy --compose-file docker-compose-slave-node.yml flask_app'
-                    }
-                }
-        }
+        }                      
 //       stage ('test') {
 //           steps {
 //              script {
