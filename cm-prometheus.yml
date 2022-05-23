@@ -12,7 +12,7 @@ data:
     scrape_configs:
       - job_name: 'node-exporter'
         static_configs:
-        - targets: ['10.0.2.148:9100', '10.0.2.37:9100', '10.0.2.147:9100', '10.0.2.108:9100']
+        - targets: ['10.0.2.204:9100', '10.0.2.186:9100', '10.0.2.102:9100', '10.0.2.249:9100']
       - job_name: 'kubernetes-apiservers'
         kubernetes_sd_configs:
         - role: endpoints
