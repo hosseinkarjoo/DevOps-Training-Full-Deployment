@@ -36,11 +36,14 @@ spec:
             - name: tpc
               protocol: TCP
               containerPort: 3306
-#          volumeMounts:
-#            - name: efs-volume
-#              mountPath: /var/lib/mysql
-#      volumes:
-#      - name: efs-volume
+          volumeMounts:
+            - name: hostfile
+              mountPath: /var/lib/mysql
+      volumes:
+      - name: hostfile
+      hostPath:
+        path: /tmp
+
 #        persistentVolumeClaim:
 #          claimName: efs-pvc
           
