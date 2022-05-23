@@ -163,7 +163,7 @@ def get_my_ip():
 
 @app.route('/proxy-client_x')
 def proxy_client_x():
-    ip_addr = request.environ['X-FORWARDED-FOR']
+    ip_addr = request.environ['X-Forwarded-For']
     return '<h1> Your IP address is:' + ip_addr
 
 @app.route('/proxy-client')
