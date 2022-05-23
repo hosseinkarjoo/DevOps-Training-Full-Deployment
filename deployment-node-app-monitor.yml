@@ -53,23 +53,23 @@ spec:
   selector:
     matchLabels:
       app: node-monitor
-   template:
-     metadata:
-       labels:
-         app: node-monitor
-     spec:
-       containers:
-       - name: monitoring-nodeexporter
-         image: prom/node-exporter
-         ports:
-           - containerPort: 9100
-         volumeMounts:
-         - name: host
-           mountPath: /host
-       volumes:
-       - name: host
-         hostPath:
-           path: /
+  template:
+    metadata:
+      labels:
+        app: node-monitor
+    spec:
+      containers:
+      - name: monitoring-nodeexporter
+        image: prom/node-exporter
+        ports:
+          - containerPort: 9100
+        volumeMounts:
+        - name: host
+          mountPath: /host
+      volumes:
+      - name: host
+        hostPath:
+          path: /
            
 ---
 
