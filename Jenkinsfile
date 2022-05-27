@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        regAddr = '234736309150.dkr.ecr.us-east-1.amazonaws.com'
+        regAddr = '947144018513.dkr.ecr.us-east-1.amazonaws.com'
     }
     agent {
         node {
